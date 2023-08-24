@@ -20,55 +20,61 @@ When I copied it, it was 2023.08.24
 ## 목적
 뉴럴클라우드 시스템을 가지고 와서 2차 세계대전(에셋은 좀 다르게 처리) 전투게임을 만들어보자
 
--개발기간 5개월  
+### 개발인원 1명
+이동호 : 개발, 기획, 모델링, 애니메이션, 자료조사
+
+### 자기소개서
+준비중
+
+### 총 개발기간 6개월(코로나, 컨디션악화로 1달은 무의미하게 소모.)
 [![Video Label](https://youtu.be/zgutF4z9UNU/0.jpg)](https://youtu.be/zgutF4z9UNU)
 
-
-
+### 미완성
+계속 보완중
 
 
 ## 제작된 기능
 
 1   카메라기능, 시네머신 + 에디터
-[카메라기능](카메라기능.mp4)  
-[시네머신과모델뷰구현](시네머신과모델뷰구현.mp4)  
-[시네머신1](시네머신1.mp4)  
-[시네머신2](시네머신2.mp4)  
-[시네머신3](시네머신3.mp4)  
+![Video Label](https://youtu.be/QLLJy-3b-Kw)
+![Video Label](https://youtu.be/25pvZrS9cCg)
+![Video Label](https://youtu.be/xxAvBKvxWfs)
+![Video Label](https://youtu.be/_J7pW63nOkQ)
+![Video Label](https://youtu.be/Dk8ywJSsFWk)
 
-2   헥스타일맵
-[타일맵](타일맵.mp4)
+2   헥스타일맵  
+![Video Label](https://youtu.be/oVlLTpQl9vk)
 
-3   유닛배치에디터
-[타일배치에디터](타일배치에디터.mp4)
+3   유닛배치에디터  
+![Video Label](https://youtu.be/irBt2UnBwsQ)
 
 4   무한스크롤 + 에디터  
 5   업적시스템  
-[무한스크롤](무한스크롤.mp4)  
+![Video Label](https://youtu.be/116Wf5N0w8M)
 
 6   CSV 임포터  
 CSV 링크 : https://docs.google.com/spreadsheets/d/1aBeyNg035A2VciVUj92WgP-APTC5R40tXyKSZeJv5qk/edit?usp=sharing  
-[C S V에디터+스탯](CSV에디터+스탯.mp4)
+![Video Label](https://youtu.be/t5yjD9iq2mU)
 
 7  스탯&상태 시스템 + 에디터  
-[스탯처리](스탯처리.mp4)
+![Video Label](https://youtu.be/G-L4EyhbumM)
 
 8  절차애니메이션 + 에디터  
-[절차애니메이션](절차애니메이션.mp4)
+![Video Label](https://youtu.be/47A27fet85E)
 
 9  알림 디스플레이 + 에디터  
-[알람디스플레이에디터](알람디스플레이에디터.mp4)  
+![Video Label](https://youtu.be/o9FNsFZkSmI) 
 
 10  특정 컴포넌트 리무브 컴포넌트    
-[컴포넌트삭제컴포넌트](컴포넌트삭제컴포넌트.mp4)  
+![Video Label](https://youtu.be/EaZu0esWjaU)
 
-11  카메라쫒아가는 UI  
-[U I쫒아가기](UI쫒아가기.mp4)  
+
+11  카메라쫒아가는 UI (모드마다 대응)
+![Video Label](https://youtu.be/TXht9loURVA)
 
 12  A* 길찾기  
 13  점수판, MVP판  
-14  타이머모듈  
-15  다이나믹오브젝트폴  
+15  다이나믹오브젝트폴
 16  게임플레이규칙관리자  
 17  세션매니저, 씬로드매니저 
 
@@ -126,21 +132,21 @@ CSV 링크 : https://docs.google.com/spreadsheets/d/1aBeyNg035A2VciVUj92WgP-APTC
 작업 불능
 
 ## 작업 5월 15일 ~ 8월 25일
-0.에이스타 길찾기 제작  
-1. 프레임워크 구조를 위한 데이터 구조변경
-2. 커브데이터추가
-3. 어빌리티시스템 설계 및 제작
-4. 절차적애니메이션 제작 (탱크바디, 주퇴복좌기)
-5. 애니멘서 에셋 한번 덮어서 사용되게 애니메이터컨트롤러 제작
+0.에이스타 길찾기 제작 
+1. 프레임워크 구조를 위한 데이터 구조변경 
+2. 커브데이터추가, 레벨기능제작 
+3. 어빌리티시스템 설계 및 제작 : 매 다른게임마다 스탯을 대응해야되는 문제점을 해결하고자 반자동화까지 제작  
+4. 절차적애니메이션 제작 (탱크바디, 주퇴복좌기)  
+5. 애니멘서 에셋 한번 덮어서 사용되게 애니메이터컨트롤러 제작 : 애니멘서에셋 메뉴얼을 읽고 애니멘서를 컨트롤하기 위한 기능을 제작  
 6. 유닛 AI작업
-7. 배틀매니저와 다른 기능들 연동
-8. 시네머신 이벤트기능 추가
-9. 육각타일맵 문제발생 발견후 수정
+7. 배틀매니저와 다른 기능들 연동 : 시네머신, 씬들끼리의 통신, 점수판, MVP판등 연동
+8. 시네머신 이벤트기능 추가 
+9. 육각타일맵 문제발생 발견후 수정 : 짝수마다의 각칸에 대한 대응이 안되는 문제를 해결
 10. 씬제작 (참호, 해변, 마을)
 11. 카메라기능 추가
 12. 참고자료 정리
-13. CSV, 구글스프레드 제작
-14. 데이터들을 임포트할떄 규칙정하기
+13. CSV, 구글스프레드 제작 (CSV 링크 : https://docs.google.com/spreadsheets/d/1aBeyNg035A2VciVUj92WgP-APTC5R40tXyKSZeJv5qk/edit?usp=sharing)
+14. 데이터들을 임포트할떄 규칙정하기 : 데이터들을 임포트할떄 폴더구조를 어덯게 짜고 어디로 연결할지 정함.
 15. 루틴이 돌아갈정도로 연동
 
 
