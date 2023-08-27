@@ -1,0 +1,10 @@
+searchMapRewardID,NameOrTitle,itemName1,amount1,itemName2,amount2,itemName3,amount3
+sm1,FoxHoleStage1,Money,1000,Supply,0,Shell,0
+sm2,SandBeachStage2,Money,2000,Supply,0,Shell,0
+sm3,VillageStage3,Money,3000,Supply,0,Shell,0
+sm4,FoxHoleStage4,Money,4000,Supply,0,Shell,0
+sm5,SandBeachStage5,Money,5000,Supply,1000,Shell,0
+sm6,VillageStage6,Money,6000,Supply,2000,Shell,0
+sm7,FoxHoleStage7,Money,7000,Supply,3000,Shell,1
+sm8,SandBeachStage8,Money,8000,Supply,4000,Shell,1
+sm9,VillageStage9,Money,9000,Supply,5000,Shell,1

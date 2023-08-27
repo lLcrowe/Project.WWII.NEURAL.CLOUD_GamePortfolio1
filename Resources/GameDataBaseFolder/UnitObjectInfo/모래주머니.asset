@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44756e2ae97fc6a45817fec1c7a36229, type: 3}
+  m_Name: "\uBAA8\uB798\uC8FC\uBA38\uB2C8"
+  m_EditorClassIdentifier: 
+  labelID: SandBag
+  icon: {fileID: 21300000, guid: d0da54feb9e38394a87837d3cc76226d, type: 3}
+  labelNameOrTitle: "\uBAA8\uB798\uC8FC\uBA38\uB2C8"
+  description: "\uCD1D\uC54C\uACFC \uD3EC\uD654\uB97C \uD53C\uD558\uAE30 \uC704\uD55C
+    \uBAA8\uB798\uC8FC\uBA38\uB2C8"
+  unitClassType: 4
+  classIcon: {fileID: 21300000, guid: 6458cfd9416c80d40be9b5a92e8e9a6d, type: 3}
+  damageObjectPrefab: {fileID: 0}
+  unitPrefab: {fileID: 5236091167080693278, guid: 034984e5da2a58c40a881c2978a61a16,
+    type: 3}
+  unitCardUI: {fileID: 0}
+  fireEffectPrefab: {fileID: 0}
+  skillDataArray: []
+  statusData:
+    unitStatusArray:
+    - unitStatusType: 0
+      value: 3000
+    - unitStatusType: 1
+      value: 3000
+    - unitStatusType: 8
+      value: 50
+    - unitStatusType: 9
+      value: 50
+    infoUnitStateApplyBible:
+      keyList: 
+      valueList: 
+  recordID_KillEnemy: KillEnemy
+  recordID_DestroyTank: DestroyTank
+  recordID_KillIInfantryman: KillIInfantryman

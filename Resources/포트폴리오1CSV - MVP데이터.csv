@@ -1,0 +1,7 @@
+MVPID,ScoreType,colorMVPBackGroundColor_Hex,bunusScale,scoreMVPAlias,scoreMVPDescription
+0,KillCount,#8d1691,1.5,킬러,가장많이 죽이는 유닛
+1,GiveDamage,#899116,2,용장,가장많은 딜을 넣은 유닛
+2,TakenDamage,#733952,1.2,수호자,가장많이 맞은 유닛
+3,HitCount,#913c29,1,힐연사,힐을 가장많이 한 유닛
+4,AttackCount,#5061ad,1,도그어태킹,손이 빠른 유닛
+5,Hill,#7fc255,1.5,메딕,힐량이 많은 유닛

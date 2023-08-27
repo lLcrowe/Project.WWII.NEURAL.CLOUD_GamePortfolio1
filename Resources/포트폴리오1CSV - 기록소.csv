@@ -1,0 +1,14 @@
+recordID,NameOrTitle,iconSprite,description
+MoneyCollect,돈을 모으기,,돈을 모은돈
+KillEnemy,적군을 죽이기,,적군을 죽인수
+EnterTheBattle,출격하기,,출격횟수
+UseSupply,보급사용하기,,보급 사용
+UseMoney,돈을 사용하기,,돈을 사용
+StartGame,게임시작하기,,게임을 시작한 횟수
+DestroyTank,탱크파괴하기,,적탱크를 파괴한 횟수
+KillIInfantryman,보병죽이기,,적보병을 죽인 횟수
+DrawUnitCard,유닛카드뽑기,,뽑기를 한 횟수
+DrawTankUnit,탱크뽑기,,탱크를 뽑은 횟수
+DrawInfantryman,보병뽑기,,보병을 뽑은 횟수
+Victory,승리,,승리한 횟수
+Defeat,패배,,패배한 횟수

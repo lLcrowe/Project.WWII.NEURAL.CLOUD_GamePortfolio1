@@ -1,0 +1,4 @@
+itemID,NameOrTitle,description,iconSprite,itemType,gradeType
+Money,Money,아이템을 살때 사용할수 있는 돈입니다.,Money,MaterialItem,Normal
+Supply,Supply,전장으로 나갈때 소모되는 보급입니다.,Supply,UsedItem,Normal
+Shell,Shell,전차에 들어갈 포탄입니다.,Shell,MaterialItem,Rare

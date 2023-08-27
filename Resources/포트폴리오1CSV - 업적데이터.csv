@@ -1,0 +1,44 @@
+achievementID,achievementActionType,iconSprite,NameOrTitle,description,isAutoComplete,UIBarPrefabName,RewardUIPrefabName
+at1,KillEnemy,,적군10마리를 죽이세요,벌써 10마리?,FALSE,AchievementUIBar_Slide,RewardUI
+at2,KillEnemy,,적군20마리를 죽이세요,좀더 좀더..!,FALSE,AchievementUIBar_Slide,RewardUI
+at3,KillEnemy,,적군50마리를 죽이세요,50..?,FALSE,AchievementUIBar_Slide,RewardUI
+at4,KillEnemy,,적군100마리를 죽이세요,너무 많잖아,FALSE,AchievementUIBar_Slide,RewardUI
+at5,KillEnemy,,적군200마리를 죽이세요,200...?,FALSE,AchievementUIBar_Slide,RewardUI
+at6,KillEnemy,,적군500마리를 죽이세요,그만와..!,FALSE,AchievementUIBar_Slide,RewardUI
+at7,KillEnemy,,적군700마리를 죽이세요,밥..밥!!,FALSE,AchievementUIBar_Slide,RewardUI
+at8,KillEnemy,,적군1000마리를 죽이세요,적군을 죽여! Kill Them All,FALSE,AchievementUIBar_Slide,RewardUI
+at9,UseSupply,,보급 10개를 사용하세요,보급이야..!,FALSE,AchievementUIBar_Slide,RewardUI
+at10,UseSupply,,보급 50개를 사용하세요,황금마차!,FALSE,AchievementUIBar_Slide,RewardUI
+at11,UseSupply,,보급 80개를 사용하세요,벌써 80개나 사용했어!,FALSE,AchievementUIBar_Slide,RewardUI
+at12,UseSupply,,보급 100개를 사용하세요,출격이다 출격!,FALSE,AchievementUIBar_Slide,RewardUI
+at13,UseSupply,,보급 120개를 사용하세요,벌써 120개나 사용했어!,FALSE,AchievementUIBar_Slide,RewardUI
+at14,UseSupply,,보급 150개를 사용하세요,벌써 150개나 사용했어!,FALSE,AchievementUIBar_Slide,RewardUI
+at15,UseSupply,,보급 180개를 사용하세요,-=흥청망청=-,FALSE,AchievementUIBar_Slide,RewardUI
+at16,UseSupply,,보급 200개를 사용하세요,보급 작작 사용해!,FALSE,AchievementUIBar_Slide,RewardUI
+at17,EnterTheBattle,,첫 출격!,출격할시간이다.,TRUE,AchievementUIBar_Slide,RewardUI
+at18,EnterTheBattle,,3번쨰 출격!,생존확률이 높아졌습니다.,TRUE,AchievementUIBar_Slide,RewardUI
+at19,EnterTheBattle,,5번쨰 출격!,이제 당신 베테랑?,TRUE,AchievementUIBar_Slide,RewardUI
+at20,MoneyCollect,,돈을 1000원 모으세요,돈을 모으세요! 이양반아,TRUE,AchievementUIBar_Slide,RewardUI
+at21,MoneyCollect,,돈을 10000원 모으세요,훗 많이 모았군요,TRUE,AchievementUIBar_Slide,RewardUI
+at22,MoneyCollect,,돈을 30000원 모으세요,이겜 컨텐츠없는데..,TRUE,AchievementUIBar_Slide,RewardUI
+at23,UseMoney,,돈을 2000원 사용하세요,돈좀 사용하세요..,TRUE,AchievementUIBar_Slide,RewardUI
+at24,UseMoney,,돈을 4000원 사용하세요,돈을 사용하세요.,TRUE,AchievementUIBar_Slide,RewardUI
+at25,UseMoney,,돈을 7000원 사용하세요,돈좀 사용하셧군요..?,TRUE,AchievementUIBar_Slide,RewardUI
+at26,UseMoney,,돈을 10000원 사용하세요,잠만 컨텐츠 없어.,TRUE,AchievementUIBar_Slide,RewardUI
+at27,DestroyTank,,탱크1대 파괴하세요,잡았어!,TRUE,AchievementUIBar_Slide,RewardUI
+at28,DestroyTank,,탱크2대 파괴하세요,또 와?,TRUE,AchievementUIBar_Slide,RewardUI
+at29,DestroyTank,,탱크5대 파괴하세요,디스트로이어,TRUE,AchievementUIBar_Slide,RewardUI
+at30,KillIInfantryman,,보병을 5명 잡으세요,온다!,TRUE,AchievementUIBar_Slide,RewardUI
+at31,KillIInfantryman,,보병을 10명 잡으세요,엄청 온다!,TRUE,AchievementUIBar_Slide,RewardUI
+at32,KillIInfantryman,,보병을 20명 잡으세요,개많이 온다!,TRUE,AchievementUIBar_Slide,RewardUI
+at33,StartGame,,게임을 1번 접속하세요,어서오십쇼!,TRUE,AchievementUIBar_Slide,RewardUI
+at34,StartGame,,게임을 3번 접속하세요,포폴입니다,TRUE,AchievementUIBar_Slide,RewardUI
+at35,DrawUnitCard,,뽑기를 1번 해보세요,뽑아뽑아~,TRUE,AchievementUIBar_Slide,RewardUI
+at36,DrawUnitCard,,뽑기를 5번 해보세요,혹시~ 당신?,TRUE,AchievementUIBar_Slide,RewardUI
+at37,DrawTankUnit,,탱크를 1번 뽑아보세요,우람한 전차..!,TRUE,AchievementUIBar_Slide,RewardUI
+at38,DrawTankUnit,,탱크를 3번 뽑아보세요,좋아 이것으로 나의 부대는 전차부대,TRUE,AchievementUIBar_Slide,RewardUI
+at39,DrawInfantryman,,보병을 1번 뽑아보세요,첫 신병..,TRUE,AchievementUIBar_Slide,RewardUI
+at40,DrawInfantryman,,보병을 3번 뽑아보세요,내밑에 많아.,TRUE,AchievementUIBar_Slide,RewardUI
+at41,Victory,,승리를 1번 하세요,승리닷!,TRUE,AchievementUIBar_Slide,RewardUI
+at42,Victory,,승리를 3번 하세요,좋아! 이대로 가자구,TRUE,AchievementUIBar_Slide,RewardUI
+at43,Defeat,,패배를 1번 하세요,씁쓸한 패배의 맛이로구나,TRUE,AchievementUIBar_Slide,RewardUI

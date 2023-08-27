@@ -1,0 +1,10 @@
+searchMapID,iconSprite,NameOrTitle,description,seed,needSupply,stageName
+sm1,,FoxHoleStage1,1차 참호전입니다.,0,1000,BattleScene_FoxHole
+sm2,,SandBeachStage2,1차 상륙작전입니다.,0,2000,BattleScene_SandBeach
+sm3,,VillageStage3,1차 시가전입니다.,0,3000,BattleScene_Village
+sm4,,FoxHoleStage4,2차 참호전입니다.,0,5000,BattleScene_FoxHole
+sm5,,SandBeachStage5,2차 상륙작전입니다.,0,8000,BattleScene_SandBeach
+sm6,,VillageStage6,2차 시가전입니다.,0,10000,BattleScene_Village
+sm7,,FoxHoleStage7,3차 참호전입니다.,0,12000,BattleScene_FoxHole
+sm8,,SandBeachStage8,3차 상륙작전입니다.,0,15000,BattleScene_SandBeach
+sm9,,VillageStage9,3차 시가전입니다.,0,20000,BattleScene_Village

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9eb99524934a34ba247110fc04cb82, type: 3}
+  m_Name: BattleScene_FoxHole
+  m_EditorClassIdentifier: 
+  workflow: 0
+  probesSpacing: 0
+  cornersDetectionThreshold: 0
+  cornerProbesSpacing: 0
+  distanceFromGeometry: 0
+  divideVolumeOnProbesCount: 0
+  useVolumeBottom: 0
+  selectedObjectsAsGlobal: 0
+  maxHeightAboveGeometry: 0
+  maxHeightAboveTerrain: 0
+  collisionDetectionLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionDetectionRadius: 0
+  considerDistanceToLights: 0
+  fillingMode: 0
+  lightIntensityThreshold: 0
+  cullByColor: 0
+  colorThreshold: 0
+  fillEquivalentVolume: 0
+  equivalentVolumeFillingRate: 0
+  fillUnlitVolume: 0
+  unlitVolumeFillingRate: 0
+  optimizeForMixedLighting: 0
+  tryPreventLightLeakage: 0
+  boundsDisplayMode: 0

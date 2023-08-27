@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe258e50b84ce948b7f8dc6554f01a0, type: 3}
+  m_Name: New BuffInfo
+  m_EditorClassIdentifier: 
+  labelID: 
+  labelNameOrTitle: 
+  description: 
+  icon: {fileID: 0}
+  buffKategorie: 0
+  isUseApplyNeedCondition: 0
+  applyNeedBible:
+    needUnitStatusCheckBible:
+      keyList: 
+      valueList: []
+    needUnitStateCheckBible:
+      keyList: 
+      valueList: []
+  isUseTimeBuff: 1
+  buffDurationTime: 5
+  isUseTimeBuffDisableBuffCondition: 0
+  disableBuffConditionBible:
+    needUnitStatusCheckBible:
+      keyList: 
+      valueList: []
+    needUnitStateCheckBible:
+      keyList: 
+      valueList: []
+  isStackBuff: 1
+  maxStack: 3
+  buffStatusBible:
+    keyList: 
+    valueList: []
+  buffStateBible:
+    keyList: 
+    valueList: 

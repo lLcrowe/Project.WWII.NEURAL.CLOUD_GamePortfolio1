@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4531572a8feb3468cc161b6dbc598a, type: 3}
+  m_Name: 3
+  m_EditorClassIdentifier: 
+  labelID: 3
+  scoreType: 3
+  colorMVPBackGroundColor_Hex: {r: 0.5686275, g: 0.23529412, b: 0.16078432, a: 1}
+  bunusScale: 1
+  scoreMVPAlias: "\uD790\uC5F0\uC0AC"
+  scoreMVPDescription: "\uD790\uC744 \uAC00\uC7A5\uB9CE\uC774 \uD55C \uC720\uB2DB"

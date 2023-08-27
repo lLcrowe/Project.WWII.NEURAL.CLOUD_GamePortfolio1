@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44756e2ae97fc6a45817fec1c7a36229, type: 3}
+  m_Name: "\uB3C5\uC77C \uB3CC\uACA9\uD0F1\uD06C"
+  m_EditorClassIdentifier: 
+  labelID: EnemyStugTank
+  icon: {fileID: 21300000, guid: 5f8fab3340cb5244093ca9e896991dde, type: 3}
+  labelNameOrTitle: "\uB3C5\uC77C \uB3CC\uACA9\uD0F1\uD06C"
+  description: "\uB3CC\uACA9\uD615 \uD0F1\uD06C\uC774\uB2E4. \uD2BC\uD2BC\uD558\uACE0
+    \uBCF4\uBCD1\uC5D0 \uAC15\uD55C \uD0F1\uD06C\uC774\uB2E4"
+  unitClassType: 1
+  classIcon: {fileID: 21300000, guid: 4f4f7f521a57f784a9ab863403ea79cc, type: 3}
+  damageObjectPrefab: {fileID: 4450301069189727923, guid: b7645cdfc65dc3e46a5c6be91702afd6,
+    type: 3}
+  unitPrefab: {fileID: 8211413301862920318, guid: e0aaaabf402f7814c86e1c23a9bf762d,
+    type: 3}
+  unitCardUI: {fileID: 308521859087382868, guid: 613ac3882ea08414892533d2a639c1a9,
+    type: 3}
+  fireEffectPrefab: {fileID: -6694090579773961399, guid: 371aa5e0cf0944c499b3d1d7b4c9799c,
+    type: 3}
+  skillDataArray: []
+  statusData:
+    unitStatusArray:
+    - unitStatusType: 0
+      value: 8000
+    - unitStatusType: 1
+      value: 8000
+    - unitStatusType: 2
+      value: 0
+    - unitStatusType: 3
+      value: 450
+    - unitStatusType: 4
+      value: 450
+    - unitStatusType: 5
+      value: 0.6
+    - unitStatusType: 6
+      value: 2
+    - unitStatusType: 7
+      value: 1
+    - unitStatusType: 8
+      value: 400
+    - unitStatusType: 9
+      value: 400
+    - unitStatusType: 10
+      value: 0
+    - unitStatusType: 11
+      value: 4
+    - unitStatusType: 12
+      value: 2
+    - unitStatusType: 13
+      value: 15
+    - unitStatusType: 14
+      value: 3
+    - unitStatusType: 15
+      value: 200
+    - unitStatusType: 16
+      value: 100
+    - unitStatusType: 17
+      value: 0
+    - unitStatusType: 18
+      value: 0
+    - unitStatusType: 19
+      value: 1
+    - unitStatusType: 20
+      value: 0
+    - unitStatusType: 21
+      value: 0
+    - unitStatusType: 22
+      value: 20
+    - unitStatusType: 23
+      value: 0
+    infoUnitStateApplyBible:
+      keyList: 00000000010000000200000003000000040000000500000006000000
+      valueList: 00000000000000
+  recordID_KillEnemy: KillEnemy
+  recordID_DestroyTank: DestroyTank
+  recordID_KillIInfantryman: KillIInfantryman

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1151d8333e18ced44a65d8f73bf65bca, type: 3}
+  m_Name: "\uD0F1\uD06C\uB97C 3\uBC88 \uBF51\uC544\uBCF4\uC138\uC694"
+  m_EditorClassIdentifier: 
+  labelID: at38
+  icon: {fileID: 21300000, guid: 6458cfd9416c80d40be9b5a92e8e9a6d, type: 3}
+  labelNameOrTitle: "\uD0F1\uD06C\uB97C 3\uBC88 \uBF51\uC544\uBCF4\uC138\uC694"
+  description: "\uC88B\uC544 \uC774\uAC83\uC73C\uB85C \uB098\uC758 \uBD80\uB300\uB294
+    \uC804\uCC28\uBD80\uB300"
+  achievementActionType: 9
+  isAutoUnlock: 1
+  uiBarPrefab: {fileID: 7612497687676677966, guid: c432b64311df5084189dc72def51869c,
+    type: 3}
+  rewardUIPrefab: {fileID: 8692977565413398017, guid: 0f811556b9c08ea4d985023e1994af7e,
+    type: 3}
