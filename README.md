@@ -26,51 +26,57 @@ When I copied it, it was 2023.08.24
 ### 자기소개서
 준비중
 
-### 총 개발기간 6개월(코로나, 컨디션악화로 1달은 무의미하게 소모.)
-[![Video Label](https://youtu.be/zgutF4z9UNU/0.jpg)](https://youtu.be/zgutF4z9UNU)
+### 총 개발기간 6개월(코로나, 컨디션악화로 1달 쉼)
+
+[![YouTube Video](https://img.youtube.com/vi/zgutF4z9UNU/0.jpg)](https://www.youtube.com/watch?v=zgutF4z9UNU)
 
 ### 미완성
 계속 보완중
 
 
+
 ## 제작된 기능
 
-1   카메라기능, 시네머신 + 에디터
-![Video Label](https://youtu.be/QLLJy-3b-Kw)
-![Video Label](https://youtu.be/25pvZrS9cCg)
-![Video Label](https://youtu.be/xxAvBKvxWfs)
-![Video Label](https://youtu.be/_J7pW63nOkQ)
-![Video Label](https://youtu.be/Dk8ywJSsFWk)
+1   카메라기능, 시네머신 + 에디터  
+[![YouTube Video](https://img.youtube.com/vi/QLLJy-3b-Kw/0.jpg)](https://www.youtube.com/watch?v=QLLJy-3b-Kw)  
+
+[![YouTube Video](https://img.youtube.com/vi/25pvZrS9cCg/0.jpg)](https://www.youtube.com/watch?v=25pvZrS9cCg)  
+
+[![YouTube Video](https://img.youtube.com/vi/xxAvBKvxWfs/0.jpg)](https://www.youtube.com/watch?v=xxAvBKvxWfs)  
+
+[![YouTube Video](https://img.youtube.com/vi/_J7pW63nOkQ/0.jpg)](https://www.youtube.com/watch?v=_J7pW63nOkQ)  
+
+[![YouTube Video](https://img.youtube.com/vi/Dk8ywJSsFWk/0.jpg)](https://www.youtube.com/watch?v=Dk8ywJSsFWk)
 
 2   헥스타일맵  
-![Video Label](https://youtu.be/oVlLTpQl9vk)
+[![YouTube Video](https://img.youtube.com/vi/oVlLTpQl9vk/0.jpg)](https://www.youtube.com/watch?v=oVlLTpQl9vk)
 
 3   유닛배치에디터  
-![Video Label](https://youtu.be/irBt2UnBwsQ)
+[![YouTube Video](https://img.youtube.com/vi/irBt2UnBwsQ/0.jpg)](https://www.youtube.com/watch?v=irBt2UnBwsQ)
 
 4   무한스크롤 + 에디터  
 5   업적시스템  
-![Video Label](https://youtu.be/116Wf5N0w8M)
+[![YouTube Video](https://img.youtube.com/vi/116Wf5N0w8M/0.jpg)](https://www.youtube.com/watch?v=116Wf5N0w8M)
 
 6   CSV 임포터  
 CSV 링크 : https://docs.google.com/spreadsheets/d/1aBeyNg035A2VciVUj92WgP-APTC5R40tXyKSZeJv5qk/edit?usp=sharing  
-![Video Label](https://youtu.be/t5yjD9iq2mU)
+[![YouTube Video](https://img.youtube.com/vi/t5yjD9iq2mU/0.jpg)](https://www.youtube.com/watch?v=t5yjD9iq2mU)
 
 7  스탯&상태 시스템 + 에디터  
-![Video Label](https://youtu.be/G-L4EyhbumM)
+[![YouTube Video](https://img.youtube.com/vi/G-L4EyhbumM/0.jpg)](https://www.youtube.com/watch?v=G-L4EyhbumM)
 
 8  절차애니메이션 + 에디터  
-![Video Label](https://youtu.be/47A27fet85E)
+[![YouTube Video](https://img.youtube.com/vi/47A27fet85E/0.jpg)](https://www.youtube.com/watch?v=47A27fet85E)
 
 9  알림 디스플레이 + 에디터  
-![Video Label](https://youtu.be/o9FNsFZkSmI) 
+[![YouTube Video](https://img.youtube.com/vi/o9FNsFZkSmI/0.jpg)](https://www.youtube.com/watch?v=o9FNsFZkSmI)
 
 10  특정 컴포넌트 리무브 컴포넌트    
-![Video Label](https://youtu.be/EaZu0esWjaU)
+[![YouTube Video](https://img.youtube.com/vi/EaZu0esWjaU/0.jpg)](https://www.youtube.com/watch?v=EaZu0esWjaU)
 
 
-11  카메라쫒아가는 UI (모드마다 대응)
-![Video Label](https://youtu.be/TXht9loURVA)
+11  카메라쫒아가는 UI (모드마다 대응)  
+[![YouTube Video](https://img.youtube.com/vi/TXht9loURVA/0.jpg)](https://www.youtube.com/watch?v=TXht9loURVA)
 
 12  A* 길찾기  
 13  점수판, MVP판  
