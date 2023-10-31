@@ -12,7 +12,7 @@ https://youtu.be/zgutF4z9UNU
 https://youtu.be/ygB2JprJd7k  
 https://youtu.be/LsV71J1FiqU  
 
--=총 라인  
+-=C# 코드줄 갯수
 ![image](https://github.com/lLcrowe/GamePortfolio1/assets/44671731/fc07d3be-0e39-4ccc-9644-f73f49e9292c)  
 
 
