@@ -12,6 +12,10 @@ https://youtu.be/zgutF4z9UNU
 https://youtu.be/ygB2JprJd7k  
 https://youtu.be/LsV71J1FiqU  
 
+-=총 라인  
+![image](https://github.com/lLcrowe/GamePortfolio1/assets/44671731/fc07d3be-0e39-4ccc-9644-f73f49e9292c)  
+
+
 ## 끝나고 해야될거
 개인 라이브러리에 수정한거와 추가할것들 집어넣기
 Util 최신화
