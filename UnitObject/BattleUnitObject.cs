@@ -70,7 +70,8 @@ namespace lLCroweTool
                 unitAbilityModule.AddStatusChangeEvent(UnitStatusType.AttackSpeed, SetAttackTimer);
                 if (unitAbilityModule.GetUnitStatusValue(UnitStatusType.AttackSpeed, out var attackSpeed))
                 {
-                    SetAttackTimer(attackSpeed);
+                    //SetAttackTimer(attackSpeed);
+                    unitAbilityModule.SetUnitStatusValue(UnitStatusType.AttackSpeed, attackSpeed);
                     attackCoolTimer.SetActionEvent(() => { AttackAction(targetUnitObject); });
                 }
 
@@ -83,8 +84,6 @@ namespace lLCroweTool
                     searchDistance = searchDistanceValue;
                 }
             }
-
-
 
             ////능력들체크
             //if (unitAbility.unitObject_Base == null)
@@ -116,15 +115,14 @@ namespace lLCroweTool
             if (1 > value)
             {
                 this.SetActive(false);//나중에 애니메이션으로 바꾸고 애니메이션이 끝나면 집어넣어서 처리하기
+
+
+
                 curHexTileObject.BatchUnitObject = null;
                 //BattleManager.Instance.UnBatchUnit(this);
                 BattleManager.Instance.gamePlayRuleManager.RemoveTeamUnit(this);
                 BattleManager.Instance.lastLiveEnemy = this;
                 unitUI.SetActive(false);
-
-
-
-
 
                 //업적갱신
                 if (unitTeamType == TeamType.Enemy)
@@ -231,7 +229,7 @@ namespace lLCroweTool
 
             //2. 경로가 있는지 체크
             if (pathList.Count != 0)
-            {
+            {   
                 //존재하면//다음구역가져오기
                 //변환이 필요//다음위치로 갈수 있는지 체크
                 if (!hexTileMap.GetHexAreaInfo(pathList[pathCount], out var nextHexTileData))
@@ -260,8 +258,6 @@ namespace lLCroweTool
                     curHexTileObject = nextHexTileObject;
                 }
 
-
-
                 //또한 갱신된 타일의 위치에 있는 내용물체크//중첩되는거 처리
                 if (curHexTileObject.BatchUnitObject != this)
                 {
@@ -276,21 +272,22 @@ namespace lLCroweTool
                 //월드거리체크//다음위치로 갔는지 여부
                 Vector3 trPos = tr.position;
                 Vector3 nextMoveWorldPos = nextHexTileObject.transform.position;
-                if (!lLcroweUtil.CheckDistance(nextMoveWorldPos, trPos, 0.1f))
+                if (!lLcroweUtil.CheckDistance(nextMoveWorldPos, trPos, 0.3f))
                 {
                     //이동중엔 공격 안함
                     //isIdleStat = false;
                     Move(nextMoveWorldPos);
-                    moveEffectGroup.Play(audioSource);
+                    moveEffectGroup.JointPlay(tr);
                     return;
                 }
 
                 //다 도착했으면
                 moveEffectGroup.Stop();
-
+                                
                 //공격탐지
                 if (DetectEnemyUnitObject(this, hexTileMap))
                 {
+                    TestDebug("공격");
                     //찾은 첫번째요소를 가져온후//공격
                     targetUnitObject = detectUnitObjectList[0];
                     Attack(targetUnitObject.tr.position);
@@ -311,10 +308,6 @@ namespace lLCroweTool
                 FindPath(battleManager);
             }
 
-
-
-
-
             //아무행동을 안했으면 아이돌상태
             if (isIdleState)
             {
@@ -322,6 +315,14 @@ namespace lLCroweTool
             }
         }
 
+        public int checkDebugTarget = 0;
+        private void TestDebug(string content)
+        {
+            if (checkDebugTarget == 1)
+            {
+                Debug.Log(content);
+            }
+        }
 
         public void FindPath(BattleManager battleManager)
         {
@@ -354,13 +355,41 @@ namespace lLCroweTool
             endTilePos = battleUnit.GetBatchTilePos();
 
             //매니저로부터 살아있는 적군이 존재하는지 체크
-            //존재하면 해당위치로 근처(근처타일)로 가기
-            if (battleManager.AStarHex.Search(startTilePos, endTilePos, ref pathList, false))
+            //존재하면 해당위치로 근처(근처타일)로 가기//나중에 고치자
+            //if (battleManager.AStarHex.Search(startTilePos, endTilePos, ref pathList, CheckRangeSearch, false))
+            if (battleManager.AStarHex.Search(startTilePos, endTilePos, ref pathList, null, false))
             {
                 //신규위치면
                 //자동갱신
                 pathCount = 0;
             }
+        }
+
+
+        //이거 나중에 인터페이스로 바꿔버리자
+        //사거리만큼의 거리를 체크하기 위한게 있음
+        public bool CheckRangeSearch(Vector3Int startPos, Vector3Int endPos)
+        {
+            //사거리            
+            unitAbilityModule.GetUnitStatusValue(UnitStatusType.AttackRange,out var value);
+            int range = (int)value;
+
+            //2여야지 근처가 아닌 원거리까지 커버할수 있음
+            if (range < 2)
+            {
+                return false;
+            }
+
+            TestDebug("길찾기추가");
+
+            //여기를 좀 단순화시켜버리는것도 괜찮을거 같다
+            //거리를 
+
+            //일정거리내의 타일인지 체크
+
+
+
+            return lLcroweUtil.CheckNearRangePos(startPos, endPos, range, hexTileMap.GetTileMap());
         }
 
         /// <summary>
@@ -402,7 +431,10 @@ namespace lLCroweTool
                     }
                 }
             }
-            
+
+            //상태변경
+            Idle();
+
             //쿨타임초기화
             attackCoolTimer.ResetTime();//이함수맞나 주석이 읍네
             attackCoolTimer.CancelCoolTime();//이건확실한데 체크하기
@@ -431,18 +463,18 @@ namespace lLCroweTool
             detectList.Clear();
             Custom3DHexTileMap custom3DHexTileMap = hexBasementTileMap.GetTileMap();
             Vector3Int tilePos = lLcroweUtil.GetWorldToCell(origin, custom3DHexTileMap);
-            Vector3Int[] findTilePosArray =  lLcroweUtil.GetNearRangePos(tilePos, Mathf.RoundToInt(searchSize), custom3DHexTileMap);
+            var findTilePosList =  lLcroweUtil.GetNearRangePos(tilePos, Mathf.RoundToInt(searchSize), custom3DHexTileMap);
             var teamRole = searchUnit.teamRuleData;
 
             //타일들에서 유닛오브젝트 체크
-            for (int i = 0; i < findTilePosArray.Length; i++)
+            for (int i = 0; i < findTilePosList.Count; i++)
             {
                 //타일이 존재하는지 체크
-                if (!hexBasementTileMap.GetHexAreaInfo(findTilePosArray[i],out HexTileData hexTileData))
+                if (!hexBasementTileMap.GetHexAreaInfo(findTilePosList[i],out HexTileData hexTileData))
                 {
                     continue;
                 }
-
+                
 
                 //타일에 유닛이 존재하는지 체크
                 BattleUnitObject detectBattleUnitObject = hexTileData.GetHexTileObject.BatchUnitObject as BattleUnitObject;
@@ -450,18 +482,18 @@ namespace lLCroweTool
                 {
                     continue;
                 }
-
+                
                 if (detectBattleUnitObject == searchUnit)
                 {
                     continue;
                 }
-
+                
                 if (detectBattleUnitObject.IsAlive() != isFindLive)
                 {
                     //찾는 상태와 같지않으면 넘어가기
                     continue;
                 }
-
+                
                 //적군 == 아군, 플레이어감지
                 //아군 == 적군 감지
                 //플레이어 == 적군감지
@@ -549,8 +581,7 @@ namespace lLCroweTool
 
             var muzzlePos = GetMuzzleTransform();
             damageObject.InitTrObjPrefab(muzzlePos);
-            damageObject.InitDamageObject(this, targetUnitObject);
-            damageObject.SetActive(true);
+            damageObject.InitDamageObject(this, targetUnitObject);            
         }
 
         /// <summary>
@@ -560,11 +591,10 @@ namespace lLCroweTool
         public void ActionFireEffect(Transform targetMuzzlePos)
         {
             //이팩트 작동
-            if (EffectManager.Instance.RequestFXObject(unitObjectInfo.fireEffectPrefab, targetMuzzlePos, true, out var effectObject))
-            {
-                Vector3 pos = targetMuzzlePos.position;
-                effectObject.Action(pos, pos, 1f);
-            }
+            Vector3 muzzlePos = targetMuzzlePos.position;
+            var effectObject = ObjectPoolManager.Instance.RequestDynamicComponentObject(unitObjectInfo.fireEffectPrefab);
+            //effectObject.Action(muzzlePos, targetMuzzlePos.forward);
+            effectObject.Action(muzzlePos, targetMuzzlePos.forward + muzzlePos);
         }
 
 

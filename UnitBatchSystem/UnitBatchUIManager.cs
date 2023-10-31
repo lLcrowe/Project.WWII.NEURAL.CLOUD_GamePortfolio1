@@ -8,6 +8,7 @@ using lLCroweTool.Session;
 using lLCroweTool.Achievement;
 using lLCroweTool.DataBase;
 using UnityEngine.Assertions.Must;
+using lLCroweTool.UI.Confirm;
 
 namespace lLCroweTool.UnitBatch
 {
@@ -578,9 +579,6 @@ namespace lLCroweTool.UnitBatch
         /// </summary>
         private void EnterTheBattle()
         {
-            //중간처리작업체크
-
-
             //배치병력을 모아서 출동
             List<BattleUnitObject> unitObjectList = new List<BattleUnitObject>();
             for (int i = 0; i < batchTrList.Count; i++)
@@ -593,16 +591,45 @@ namespace lLCroweTool.UnitBatch
                 unitObjectList.Add(temp);
             }
 
+            //중간처리작업체크
+            int count = unitObjectList.Count;
+            string content = unitObjectList.Count == 0 ? "카드를 배치하지 않았습니다!" : "카드를 다배치하지 않으셧습니다. 진행하시겠습니까?";
+            var confirmWindow = GlobalConfirmWindow.Instance;
+          
+            if (count < 5)
+            {
+                if (count == 0)
+                {
+                    confirmWindow.SetConfirmWindow(content, null, "확인");
+                    
+                }
+                else
+                {
+                    confirmWindow.SetConfirmWindow(content, () =>
+                    {                        
+                        ConfirmEnterTheBattle(unitObjectList);
+                    }, null, "예. 출격하겠습니다.", "아니요");
+                }
+                confirmWindow.ShowConfirmWindowUIView();
+                return;
+            }
+
+            ConfirmEnterTheBattle(unitObjectList);
+        }
+
+        private void ConfirmEnterTheBattle(List<BattleUnitObject> unitObjectList)
+        {
             //전장가는 업적 체크
             AchievementManager.Instance.UpdateRecordData("EnterTheBattle", 1);
             AchievementManager.Instance.UpdateRecordData("UseSupply", targetSearchMapInfo.needSupply);
-            
+
 
             //로딩처리
             //보내버리기
-            HideBatchUI();
             SessionManager.Instance.LoadingTheTargetScene(unitObjectList, targetSearchMapInfo.stageName, () => BattleManager.Instance.InitBattleManager(unitObjectList, targetSearchMapInfo));
+            HideBatchUI();
         }
+
 
         /// <summary>
         /// 배치UI를 보여주는 함수 유닛데이터들을 받아서 카드로 뿌려주기

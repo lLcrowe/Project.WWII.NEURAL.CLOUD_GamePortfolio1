@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\uBBF8\uAD6D \uACBD\uAE30\uAD00\uCD1D\uBCF4\uBCD1"
   m_EditorClassIdentifier: 
   labelID: AmericaLightMachineGunSolider
-  icon: {fileID: 21300000, guid: 6458cfd9416c80d40be9b5a92e8e9a6d, type: 3}
+  icon: {fileID: 21300000, guid: 098280a9e18385f46977d795be1edf48, type: 3}
   labelNameOrTitle: "\uBBF8\uAD6D \uACBD\uAE30\uAD00\uCD1D\uBCF4\uBCD1"
   description: "\uC911\uAC70\uB9AC\uC5D0\uC11C \uC5F0\uBC1C\uB85C \uC3F4\uC11C \uC9C0\uC6D0\uD558\uB294
     \uBCF4\uBCD1\uC774\uB2E4."
@@ -41,7 +41,7 @@ MonoBehaviour:
     - unitStatusType: 4
       value: 50
     - unitStatusType: 5
-      value: 0.2
+      value: 1
     - unitStatusType: 6
       value: 3
     - unitStatusType: 7
@@ -53,7 +53,7 @@ MonoBehaviour:
     - unitStatusType: 10
       value: 0
     - unitStatusType: 11
-      value: 4
+      value: 30
     - unitStatusType: 12
       value: 1
     - unitStatusType: 13

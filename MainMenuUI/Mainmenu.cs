@@ -147,13 +147,6 @@ namespace lLCroweTool.UI.MainMenu
         
         private IEnumerator Start()
         {
-            // 초기카메라배치//처음에는 스킵 못하게 처리
-            if (cinemachineManager.RequestCustomCinemachine("OutBasement", out CustomCinemachine outCinemachine))
-            {
-                //존재하면 가져와서 작동
-                ActionCinemachineCamera(outCinemachine);
-                //ActionCinemachineCamera(refCinemachine);//스킵
-            }
             playerSupplyDataUI.SetActive(false);
 
             //비행기 시네머신작동
@@ -163,13 +156,24 @@ namespace lLCroweTool.UI.MainMenu
             plane2Cinemachine.ActionCamera();
         }
 
+        [ButtonMethod]
+        public void EnterCinemachineMainMenu()
+        {
+            // 초기카메라배치//처음에는 스킵 못하게 처리
+            if (cinemachineManager.RequestCustomCinemachine("OutBasement", out var outCinemachine))
+            {
+                //존재하면 가져와서 작동
+                ActionCinemachineCamera(outCinemachine);
+                //ActionCinemachineCamera(refCinemachine);//스킵
+            }
+        }
+
         private void SetActionCinemachine(string id, UnityAction startAction, UnityAction endAction)
         {
             if (cinemachineManager.RequestCustomCinemachine(id, out CustomCinemachine refCinemachine))
             {
                 //존재하면 가져와서 이벤트집어넣기
-                refCinemachine.startEvent.AddListener(startAction);
-                refCinemachine.endEvent.AddListener(endAction);
+                refCinemachine.SetActionEvent(startAction, endAction);
             }
         }
 

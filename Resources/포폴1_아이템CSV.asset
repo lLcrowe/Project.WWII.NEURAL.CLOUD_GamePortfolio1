@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "\uD3EC\uD3F41_\uC544\uC774\uD15CCSV"
+  m_Script: "\"itemID\",\"NameOrTitle\",\"description\",\"iconSprite\",\"itemType\",\"gradeType\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"\n\"Money\",\"Money\",\"\uC544\uC774\uD15C\uC744
+    \uC0B4\uB54C \uC0AC\uC6A9\uD560\uC218 \uC788\uB294 \uB3C8\uC785\uB2C8\uB2E4.\",\"Money\",\"MaterialItem\",\"Normal\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"\n\"Supply\",\"Supply\",\"\uC804\uC7A5\uC73C\uB85C
+    \uB098\uAC08\uB54C \uC18C\uBAA8\uB418\uB294 \uBCF4\uAE09\uC785\uB2C8\uB2E4.\",\"Supply\",\"UsedItem\",\"Normal\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"\n\"Shell\",\"Shell\",\"\uC804\uCC28\uC5D0
+    \uB4E4\uC5B4\uAC08 \uD3EC\uD0C4\uC785\uB2C8\uB2E4.\",\"Shell\",\"MaterialItem\",\"Rare\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\""

@@ -35,6 +35,8 @@ namespace lLCroweTool.QC.EditorOnly
 
         private void OnSceneGUI()
         {
+            //부모 전체처리하느 곳에서 호출
+            CustomCinemachineInspectorEditor.CustomCinemachineOnSceneGUI(targetObjectBatchInfo.targetCinemachine);
             ObjectBatchInfoOnSceneGUI(targetObjectBatchInfo, isModify);
         }
 
@@ -211,7 +213,7 @@ namespace lLCroweTool.QC.EditorOnly
             
 
             EditorGUILayout.HelpBox("부모가 될 타겟입니다. 지정될시 로컬, 안됫을시 월드포지션으로 계산됩니다.", MessageType.Info);
-            lLcroweUtilEditor.ObjectFieldAndNullButton("따라다닐 오브젝트", ref cameraBatchInfo.followObject);
+            lLcroweUtilEditor.ObjectFieldAndNullButton("따라다닐 오브젝트", ref cameraBatchInfo.followObject, true);
             //후에 있을 기능
             if (cameraBatchInfo.followObject != null)
             {
@@ -221,7 +223,7 @@ namespace lLCroweTool.QC.EditorOnly
 
 
             EditorGUILayout.HelpBox("봐라볼 대상입니다. 지정될시 세팅한 회전값대신 봐라볼대상으로 회전되며.\n 회전축은 월드포지션기준이지만 따라갈대상이 존재할시 따라갈대상의 회전축을 사용합니다.", MessageType.Info);
-            lLcroweUtilEditor.ObjectFieldAndNullButton("봐라볼 오브젝트", ref cameraBatchInfo.lookAtObject);
+            lLcroweUtilEditor.ObjectFieldAndNullButton("봐라볼 오브젝트", ref cameraBatchInfo.lookAtObject, true);
             cameraBatchInfo.lookAtOffset = EditorGUILayout.Vector3Field("봐라볼 오프셋", cameraBatchInfo.lookAtOffset);
 
             EditorGUILayout.LabelField("------------------------");
@@ -229,7 +231,7 @@ namespace lLCroweTool.QC.EditorOnly
             {
                 EditorGUILayout.HelpBox("컨트롤할 대상이 없습니다.(필수조건)", MessageType.Error);
             }
-            lLcroweUtilEditor.ObjectFieldAndNullButton("컨트롤할 타겟", ref cameraBatchInfo.controlTarget);
+            lLcroweUtilEditor.ObjectFieldAndNullButton("컨트롤할 타겟", ref cameraBatchInfo.controlTarget, true);
 
 
             EditorGUILayout.LabelField("------------------------");

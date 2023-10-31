@@ -17,8 +17,6 @@ using lLCroweTool.NoticeDisplay;
 using lLCroweTool.Session;
 using lLCroweTool.GamePlayRuleSystem;
 using lLCroweTool.DataBase;
-using System;
-using lLCroweTool.DestroyManger;
 
 namespace lLCroweTool
 {
@@ -68,7 +66,7 @@ namespace lLCroweTool
 
 
         //ui처리관련-------------------------------------------------------------
-        [Header("작동버튼")]
+        [Header("게임UI작동버튼")]
         public Button inGameMenuButton;
 
         public Button battleStartButton;
@@ -76,8 +74,7 @@ namespace lLCroweTool
         public TextMeshProUGUI gameSpeedChangeText;
 
 
-        [Header("씬처리")]
-        [SceneAttribute] public string mainMenuSceneName;
+        [Header("승리처리UI")]        
         public Button goToMainButton;
 
         [Header("패배처리UI")]
@@ -225,11 +222,12 @@ namespace lLCroweTool
                 tempHexTile.BatchUnitObject = tempUnit;
                 tempUnit.curHexTileObject = tempHexTile;
                 tempUnit.transform.InitTrObjPrefab(tempHexTile.transform.position, tempHexTile.transform.rotation, tempHexTile.transform);
+                tempUnit.Idle();
             }
 
             CheckOnCanvas.onUIPanel = false;
 
-            //비행기 날려줌
+            //스테이지마다 있는 시네마틱작동
             if (cinemachineManager.RequestCustomCinemachine("IntoBattle", out var customCinemachine))
             {
                 customCinemachine.ActionCamera();
@@ -702,7 +700,8 @@ namespace lLCroweTool
 
         private void ActiveMainMenuUI()
         {
-            
+            //현재는 메인메뉴로 돌아가버리게 제작
+            GoToMainMenu();
         }
 
         private void BattleSpeedChange(bool isFastTime)
@@ -785,6 +784,13 @@ namespace lLCroweTool
 
                 //유닛들 시작이벤트발동하기
                 item.StartBattleEvent();
+            }
+
+            //유닛들
+            foreach (var item in batchHexTileObjectArray)
+            {
+                //존재하는 타일들만 처리
+                item?.BatchUnitObject?.SetActive(false);
             }
 
             //모드변경
@@ -892,7 +898,6 @@ namespace lLCroweTool
 
             //노드맵으로 돌아가기. 다음 노드가 없을시 최종결과창을 보여주기
             //일단 노드맵은 빼고 최종결과창만 보여줄까
-
 
             //결과가 모두나왔으면
 

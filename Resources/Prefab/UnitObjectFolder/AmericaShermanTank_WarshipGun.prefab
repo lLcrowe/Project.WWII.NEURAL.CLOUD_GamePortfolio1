@@ -2760,15 +2760,19 @@ MonoBehaviour:
   pathList: []
   pathCount: 0
   moveEffectGroup:
+    timer:
+      timer: 0
+      indieTimer: 0
     visualEffectArray:
     - {fileID: 6719283733803969770}
     - {fileID: 6547465047460263724}
     - {fileID: 3793657512948804567}
     - {fileID: 6809670320394872519}
     particleSystemArray: []
-    audioClipArray: []
+    soundInfoArray: []
   audioSource: {fileID: 0}
   isGameStart: 0
+  checkDebugTarget: 0
   rotatePower: 50
   turret: {fileID: 5035804589505417298}
   caterpillarSpeed: 50

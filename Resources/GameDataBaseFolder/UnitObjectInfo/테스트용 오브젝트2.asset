@@ -39,7 +39,7 @@ MonoBehaviour:
     - unitStatusType: 4
       value: 8
     - unitStatusType: 5
-      value: 0.5
+      value: 1
     - unitStatusType: 6
       value: 1
     - unitStatusType: 7

@@ -39,7 +39,6 @@ namespace lLCroweTool.TileMap.HexTileMap
         public HexTileObjectBible hexTileObjectBible = new HexTileObjectBible();
         public HexTileObject hexTilePrefab;//랜더러와 배치 둘다 있는것
 
-        public Transform testTarget;
 
         [ButtonMethod]
         public void CreateHexTileMap()
@@ -61,7 +60,7 @@ namespace lLCroweTool.TileMap.HexTileMap
                         int decreaseValue = x % 2 == 1 ? 1 : 0;
                         for (int y = 0; y < heightAmount - decreaseValue; y++)
                         {
-                            var hexTile = Instantiate(hexTilePrefab);
+                            var hexTile = RequestHexTile();
                             Vector3Int tilePos = new Vector3Int(x, y);//고정
                             hexTile.name = tilePos.ToString();
                             hexTile.InitTrObjPrefab(GetTileLocalPos(tilePos), Quaternion.identity, transform, false);
@@ -79,7 +78,7 @@ namespace lLCroweTool.TileMap.HexTileMap
                         int decreaseValue = y % 2 == 1 ? 1 : 0;
                         for (int x = 0; x < widthAmount - decreaseValue; x++)
                         {
-                            var hexTile = Instantiate(hexTilePrefab);
+                            var hexTile = RequestHexTile();
                             Vector3Int tilePos = new Vector3Int(x, y);//고정
                             hexTile.name = tilePos.ToString();
                             hexTile.InitTrObjPrefab(GetTileLocalPos(tilePos), Quaternion.identity, transform, false);
@@ -92,6 +91,19 @@ namespace lLCroweTool.TileMap.HexTileMap
                     }
                     break;
             }
+        }
+
+        private HexTileObject RequestHexTile()
+        {
+
+            //한번작동시키면 문제가 있다
+            //프리팹의 특성으로 플레이후 중지시키면 프리팹에 지정된 데이터만 가지고 있어서
+            //세팅해논 데이터는 싹 날라감
+            //return (HexTileObject)UnityEditor.PrefabUtility.InstantiatePrefab(hexTilePrefab);
+
+            return Instantiate(hexTilePrefab);
+
+            
         }
         
         /// <summary>
@@ -217,8 +229,27 @@ namespace lLCroweTool.TileMap.HexTileMap
             return hexTileObjectBible.TryGetValue(vector3Int, out hexTileObject);
         }
 
+
+#if UNITY_EDITOR
+
+        public Transform testTarget;
+        public bool isShowObstacle;
         private void OnDrawGizmos()
-        {   
+        {
+            if (!isShowObstacle)
+            {
+                return;
+            }
+
+            foreach (var item in hexTileObjectBible)
+            {
+                var hexTile = item.Value;
+                Gizmos.color = hexTile.targetBatchObject == null ? Color.blue : Color.red;
+                Gizmos.DrawWireSphere(hexTile.transform.position, 1f);
+            }
+            
+
+            return;
             if (testTarget == null)
             {
                 return;
@@ -301,6 +332,7 @@ namespace lLCroweTool.TileMap.HexTileMap
 
 
         }
+#endif
 
         // 좌표 상자 시스템에서 특정 헥스 타일의 월드 좌표를 반환하는 함수
         public Vector3 GetHexPosition(int q, int r)
@@ -349,6 +381,5 @@ namespace lLCroweTool.TileMap.HexTileMap
             }
             return newPos;
         }
-             
     }
 }

@@ -1014,7 +1014,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65a901647c2ba434485f16796b19f68f, type: 2}
+  - {fileID: 2100000, guid: 97f256cb8ae02004aa5f15eff5d49d81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1931,15 +1931,19 @@ MonoBehaviour:
   pathList: []
   pathCount: 0
   moveEffectGroup:
+    timer:
+      timer: 0
+      indieTimer: 0
     visualEffectArray:
     - {fileID: 5185425555252873891}
     - {fileID: 2321264147344234807}
     - {fileID: 7176095040119254186}
     - {fileID: 885954159931468796}
     particleSystemArray: []
-    audioClipArray: []
+    soundInfoArray: []
   audioSource: {fileID: 0}
   isGameStart: 0
+  checkDebugTarget: 0
   rotatePower: 50
   turret: {fileID: 9064294671547618845}
   caterpillarSpeed: 50
@@ -4540,7 +4544,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65a901647c2ba434485f16796b19f68f, type: 2}
+  - {fileID: 2100000, guid: 97f256cb8ae02004aa5f15eff5d49d81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6146,7 +6150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65a901647c2ba434485f16796b19f68f, type: 2}
+  - {fileID: 2100000, guid: 97f256cb8ae02004aa5f15eff5d49d81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

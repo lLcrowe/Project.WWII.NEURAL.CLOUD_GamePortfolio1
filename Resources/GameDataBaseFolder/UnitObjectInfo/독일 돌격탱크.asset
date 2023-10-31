@@ -41,7 +41,7 @@ MonoBehaviour:
     - unitStatusType: 4
       value: 450
     - unitStatusType: 5
-      value: 0.6
+      value: 3
     - unitStatusType: 6
       value: 2
     - unitStatusType: 7
@@ -53,7 +53,7 @@ MonoBehaviour:
     - unitStatusType: 10
       value: 0
     - unitStatusType: 11
-      value: 4
+      value: 30
     - unitStatusType: 12
       value: 2
     - unitStatusType: 13

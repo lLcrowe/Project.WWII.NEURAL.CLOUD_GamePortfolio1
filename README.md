@@ -1,92 +1,133 @@
-# Portfolio1
-
-It's a copy from the original.  
-When I copied it, it was 2023.08.24
-
-본 포트폴리오는 원본에서 복사한 사본입니다.  
-복사한 시점은 2023.08.24
-
-따로 사본을 만든 이유는 개인라이브러리등 리포지토리가 3개이상되서  
-한꺼번에 올리기 위해 사본을 만들었습니다.
-
-### 커밋내용
--GamePortfolio1
-![Commit1](commit1.png)
--StandardQualityControlLibary
-![Commit2](commit2.png)
-
-
-
-## 목적
+# GameStudyPortfolio1
 뉴럴클라우드 시스템을 가지고 와서 2차 세계대전(에셋은 좀 다르게 처리) 전투게임을 만들어보자
 
-### 개발인원 1명
-이동호 : 개발, 기획, 모델링, 애니메이션, 자료조사
-
-### 자기소개서
-준비중
-
-### 총 개발기간 6개월(코로나, 컨디션악화로 1달 쉼)
-
-[![YouTube Video](https://img.youtube.com/vi/zgutF4z9UNU/0.jpg)](https://www.youtube.com/watch?v=zgutF4z9UNU)
-
-### 미완성
-계속 보완중
+-개발기간 6개월
+https://youtu.be/zgutF4z9UNU
 
 
+## 염두해둘것
+## 1. 기술보다 프로덕트이다. 여기는 엔터테인먼트산업이다.
+## 2. 전체틀을 만들어두고 디테일을 잡아라. 전체가 먼저다.
+## 3. 기존까지의 고집을 좀 버린후 각잡고 만드는 포폴들이다.
+## 4. 증명이다. 4년동안 무엇을 했는지에 대한.
 
-## 제작된 기능
+## 필요한것
+헥스타일맵 => 자동생성맵?을 할까. 특정오브젝트 배치  
+노드맵 => 노드맵
+카메라스크립트
+카메라프리셋(시네머신?)
+오브젝트폴(Q사용)
+오브젝트폴을 이용한 사운드처리
 
-1   카메라기능, 시네머신 + 에디터  
-[![YouTube Video](https://img.youtube.com/vi/QLLJy-3b-Kw/0.jpg)](https://www.youtube.com/watch?v=QLLJy-3b-Kw)  
+육각타일 어덯게 처리할지 체크
 
-[![YouTube Video](https://img.youtube.com/vi/25pvZrS9cCg/0.jpg)](https://www.youtube.com/watch?v=25pvZrS9cCg)  
+클릭했을시 툴팁표시
 
-[![YouTube Video](https://img.youtube.com/vi/xxAvBKvxWfs/0.jpg)](https://www.youtube.com/watch?v=xxAvBKvxWfs)  
-
-[![YouTube Video](https://img.youtube.com/vi/_J7pW63nOkQ/0.jpg)](https://www.youtube.com/watch?v=_J7pW63nOkQ)  
-
-[![YouTube Video](https://img.youtube.com/vi/Dk8ywJSsFWk/0.jpg)](https://www.youtube.com/watch?v=Dk8ywJSsFWk)
-
-2   헥스타일맵  
-[![YouTube Video](https://img.youtube.com/vi/oVlLTpQl9vk/0.jpg)](https://www.youtube.com/watch?v=oVlLTpQl9vk)
-
-3   유닛배치에디터  
-[![YouTube Video](https://img.youtube.com/vi/irBt2UnBwsQ/0.jpg)](https://www.youtube.com/watch?v=irBt2UnBwsQ)
-
-4   무한스크롤 + 에디터  
-5   업적시스템  
-[![YouTube Video](https://img.youtube.com/vi/116Wf5N0w8M/0.jpg)](https://www.youtube.com/watch?v=116Wf5N0w8M)
-
-6   CSV 임포터  
-CSV 링크 : https://docs.google.com/spreadsheets/d/1aBeyNg035A2VciVUj92WgP-APTC5R40tXyKSZeJv5qk/edit?usp=sharing  
-[![YouTube Video](https://img.youtube.com/vi/t5yjD9iq2mU/0.jpg)](https://www.youtube.com/watch?v=t5yjD9iq2mU)
-
-7  스탯&상태 시스템 + 에디터  
-[![YouTube Video](https://img.youtube.com/vi/G-L4EyhbumM/0.jpg)](https://www.youtube.com/watch?v=G-L4EyhbumM)
-
-8  절차애니메이션 + 에디터  
-[![YouTube Video](https://img.youtube.com/vi/47A27fet85E/0.jpg)](https://www.youtube.com/watch?v=47A27fet85E)
-
-9  알림 디스플레이 + 에디터  
-[![YouTube Video](https://img.youtube.com/vi/o9FNsFZkSmI/0.jpg)](https://www.youtube.com/watch?v=o9FNsFZkSmI)
-
-10  특정 컴포넌트 리무브 컴포넌트    
-[![YouTube Video](https://img.youtube.com/vi/EaZu0esWjaU/0.jpg)](https://www.youtube.com/watch?v=EaZu0esWjaU)
+덱빌딩
+카드배치 (완)
+카드 뱃다 집어넣었다 하는방
 
 
-11  카메라쫒아가는 UI (모드마다 대응)  
-[![YouTube Video](https://img.youtube.com/vi/TXht9loURVA/0.jpg)](https://www.youtube.com/watch?v=TXht9loURVA)
-
-12  A* 길찾기  
-13  점수판, MVP판  
-15  다이나믹오브젝트폴
-16  게임플레이규칙관리자  
-17  세션매니저, 씬로드매니저 
+RPG적 요소(유닛레벨업같은?)  
+유닛스탯  
+유닛스킬  
+지휘관스킬    
+메인메뉴  
+오프닝 영상  
+각 화면의 UI제작  
+덱(카드 만들기)  
+결과관련 제작    
+인게임 캐릭터보기  
+노드UI 월드스페이스 UI같은데
+스타일라이징 투사체이팩트 사용하기
+맞았을떄 캐릭터 스탯UI가 움직이넹 축소됫다 원복(제작끝)
 
 
 
-# 작업내역
+https://boristhebrave.github.io/DeBroglie/articles/features.html
+
+
+요소보드 제작 => 프로필구역의 명칭관련요소가 없넹 
+모델중에서 필요한 요소들 추출하기  
+아이콘들 추출하기  
+
+
+#### UI 프리셋
+H: 0, S: 0,  V: 20, A: 70  
+채도가 20 이하임. 아무리봐도 20 이하말고는 없음  
+밸류가 최대 70  
+H는 상관없음  
+https://cdn.discordapp.com/attachments/1080635831062118400/1092432971337830400/image.png
+
+
+### 참조자료들 모아서보기  
+![Scene](https://user-images.githubusercontent.com/44671731/234037547-96c0d4ef-ce0c-4f00-a582-8a18ca95466d.png)
+
+
+### 가능한 에셋
+그래픽에셋(3D,2D이미지리소스)        => 가능  
+UI에셋 + UI적 스크립팅              => 가능  
+애니메이션에셋 + 애니메이션스크립팅   => 가능  
+사운드에셋                          => 가능  
+포스트프로세팅, 볼륨, 플레어         => 가능   
+
+##### 참고
+메인이 될 기술적인부분
+기능적 부분을 직접적으로 만들고
+백업한뒤 미숙하면 다른툴들을 그대로 가져와소 대체해서 쓴다
+클라로서의 전체적인 능력을 평가.
+수치값 집어넣는것만 직접하면 되고나머지는 알아서 처리하면 됨
+
+
+게임을 만들기 위한 기술적인 부분
+게임컨탠츠 개발자는 게임을 개발한다
+보여줄수 와꾸를 가진 게임을 만들어야된다
+게임에 대한 프로덕트가 없다
+강사로서 퀼리티높이는걸 도와주는것
+
+
+
+## 현재 사용한 에셋  
+
+-=모델링  
+POLYGON War - Low Poly 3D Art by Synty  
+
+-=이팩트  
+ActionRPGFX  
+ProEffects : FPS Muzzle Flashes & Impacts  
+RTS FX  
+SimpleFX - Cartoon Particles  
+Simple Sky - cartoon Asset  
+Stylized Projectile Pack1  
+
+-=프로세싱  
+Beatify2  
+Magic Light Probes  
+
+-=UI  
+DoozyUI  
+UIBuilder  
+
+-=애니메이션  
+DOTween Pro  
+UMotion Pro - Animation Editor  
+
+-=사운드  
+Gun & ExplosionSounds  
+
+-=기타  
+Editor Console Pro  
+Grabbit - Editor Physics Transforms  
+Prefab World Builder    
+SRDebugger - Console & Tools On-Device  
+
+
+## 끝나고 해야될거
+개인 라이브러리에 개조한거와 추가할것들 집어넣기
+Util 최신화
+UtilEditor 최신화
+새로 제작한 기능들 옮기기
+
 ## 기획설계 2월27일 ~ 2월28일(2일)
 
 ## 작업 1달차 2023년 3월1일 ~ 3월25일(25일)
@@ -135,24 +176,17 @@ CSV 링크 : https://docs.google.com/spreadsheets/d/1aBeyNg035A2VciVUj92WgP-APTC
 25. 트랜스폼정렬을 위한 윈도우에디터 제작 (완) : 에디터를 키고 원하는 대상들을 클릭한다음 수정하기 누르면 작동
 
 ## 작업 x달차 5월3일 ~ (5월7일~5월14일 코로나 격리기간)
-작업 불능
 
-## 작업 5월 15일 ~ 8월 25일
-0.에이스타 길찾기 제작 
-1. 프레임워크 구조를 위한 데이터 구조변경 
-2. 커브데이터추가, 레벨기능제작 
-3. 어빌리티시스템 설계 및 제작 : 매 다른게임마다 스탯을 대응해야되는 문제점을 해결하고자 반자동화까지 제작  
-4. 절차적애니메이션 제작 (탱크바디, 주퇴복좌기)  
-5. 애니멘서 에셋 한번 덮어서 사용되게 애니메이터컨트롤러 제작 : 애니멘서에셋 메뉴얼을 읽고 애니멘서를 컨트롤하기 위한 기능을 제작  
-6. 유닛 AI작업
-7. 배틀매니저와 다른 기능들 연동 : 시네머신, 씬들끼리의 통신, 점수판, MVP판등 연동
-8. 시네머신 이벤트기능 추가 
-9. 육각타일맵 문제발생 발견후 수정 : 짝수마다의 각칸에 대한 대응이 안되는 문제를 해결
-10. 씬제작 (참호, 해변, 마을)
-11. 카메라기능 추가
-12. 참고자료 정리
-13. CSV, 구글스프레드 제작 (CSV 링크 : https://docs.google.com/spreadsheets/d/1aBeyNg035A2VciVUj92WgP-APTC5R40tXyKSZeJv5qk/edit?usp=sharing)
-14. 데이터들을 임포트할떄 규칙정하기 : 데이터들을 임포트할떄 폴더구조를 어덯게 짜고 어디로 연결할지 정함.
-15. 루틴이 돌아갈정도로 연동
+## 작업 5월 15일 ~ 7월 4일
+0.
+
+
+
+
+
+
+
+
+
 
 

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: New TipDefaultData
   m_EditorClassIdentifier: 
   tips:
-  - Enemy Attack For You
-  - Enemy Present For FineApple
+  - "\uD0F1\uD06C\uB294 \uD0F1\uD06C\uB85C \uB9DE\uC11C \uC2F8\uC6B0\uC138\uC694."
+  - "\uC801\uAD70\uD55C\uD14C \uD30C\uC778\uC560\uD50C\uC744 \uC120\uBB3C\uB85C \uC8FC\uC138\uC694."
+  - "\uC5EC\uAE30\uC11C \uAC10\uC790\uB294 \uADF8 \uAC10\uC790\uC785\uB2C8\uB2E4."

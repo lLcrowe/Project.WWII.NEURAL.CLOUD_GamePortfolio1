@@ -149,7 +149,12 @@ namespace lLCroweTool.QC.EditorOnly
       
 
         private void OnSceneGUI()
-        {  
+        {
+            CustomCinemachineOnSceneGUI(targetCinemachine);
+        }
+
+        public static void CustomCinemachineOnSceneGUI(CustomCinemachine targetCinemachine)
+        {
             for (int i = 0; i < targetCinemachine.cameraBatchList.Count; i++)
             {
                 int index = i;

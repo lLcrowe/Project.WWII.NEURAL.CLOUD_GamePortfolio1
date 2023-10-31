@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: "\uC720\uB2DB\uCE74\uB4DC\uBF51\uAE30"
   m_EditorClassIdentifier: 
   labelID: DrawUnitCard
-  icon: {fileID: 21300000, guid: 6458cfd9416c80d40be9b5a92e8e9a6d, type: 3}
+  icon: {fileID: 21300000, guid: 85577afce7234304fb056eb31390150a, type: 3}
   labelNameOrTitle: "\uC720\uB2DB\uCE74\uB4DC\uBF51\uAE30"
   description: "\uBF51\uAE30\uB97C \uD55C \uD69F\uC218"

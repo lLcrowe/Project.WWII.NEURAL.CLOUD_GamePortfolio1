@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "\uD3EC\uD3F41_MVPCSV"
+  m_Script: "\"MVPID\",\"ScoreType\",\"colorMVPBackGroundColor_Hex\",\"bunusScale\",\"scoreMVPAlias\",\"scoreMVPDescription\"\n\"0\",\"KillCount\",\"#8d1691\",\"1.5\",\"\uD0AC\uB7EC\",\"\uAC00\uC7A5\uB9CE\uC774
+    \uC8FD\uC774\uB294 \uC720\uB2DB\"\n\"1\",\"GiveDamage\",\"#899116\",\"2\",\"\uC6A9\uC7A5\",\"\uAC00\uC7A5\uB9CE\uC740
+    \uB51C\uC744 \uB123\uC740 \uC720\uB2DB\"\n\"2\",\"TakenDamage\",\"#733952\",\"1.2\",\"\uC218\uD638\uC790\",\"\uAC00\uC7A5\uB9CE\uC774
+    \uB9DE\uC740 \uC720\uB2DB\"\n\"3\",\"HitCount\",\"#913c29\",\"1\",\"\uD790\uC5F0\uC0AC\",\"\uD790\uC744
+    \uAC00\uC7A5\uB9CE\uC774 \uD55C \uC720\uB2DB\"\n\"4\",\"AttackCount\",\"#5061ad\",\"1\",\"\uB3C4\uADF8\uC5B4\uD0DC\uD0B9\",\"\uC190\uC774
+    \uBE60\uB978 \uC720\uB2DB\"\n\"5\",\"Hill\",\"#7fc255\",\"1.5\",\"\uBA54\uB515\",\"\uD790\uB7C9\uC774
+    \uB9CE\uC740 \uC720\uB2DB\""

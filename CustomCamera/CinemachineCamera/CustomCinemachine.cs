@@ -118,6 +118,19 @@ namespace lLCroweTool.Cinemachine
         }
 
         /// <summary>
+        /// 이벤트세팅 함수
+        /// </summary>
+        /// <param name="startAction">시작이벤트</param>
+        /// <param name="endAction">끝이벤트</param>
+        public void SetActionEvent(UnityAction startAction, UnityAction endAction)
+        {
+            startEvent.RemoveAllListeners();
+            endEvent.RemoveAllListeners();
+            startEvent.AddListener(startAction);
+            endEvent.AddListener(endAction);
+        }
+
+        /// <summary>
         /// 시네머신카메라 작동로직
         /// </summary>
         private void ActionCameraLogic()

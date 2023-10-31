@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using lLCroweTool.Effect;
+using UnityEngine;
 
 namespace lLCroweTool.Ability
 {
@@ -9,14 +10,24 @@ namespace lLCroweTool.Ability
         //어차피 이게임은 타겟팅임
         //투사체 처리
                 
-        public float hitDistance = 0.1f;//일정거리안으로 들어오면 히트로 침
+        public float hitDistance = 0.5f;//일정거리안으로 들어오면 히트로 침
         public float projectileSpeed = 0.5f;
         public int attackRange = 0;
+
+        public Vector3 targetPos;
+        public Quaternion rot;
+        
         [SerializeField] private UnitObject_Base targetAttackUnit;
         [SerializeField] private UnitObject_Base targetObject;
 
+        public EffectObject effectObjectPrefab;
+
 
         private Transform tr;
+
+        //20231024
+        //공격이팩트와, 공격히트이팩트 둘다 가지고 있는게 올바르어 보임
+        //다음 제작할때는 설계에 집어넣기
 
         
 
@@ -36,6 +47,9 @@ namespace lLCroweTool.Ability
         {
             targetAttackUnit = attackUnit;
             targetObject = targetUnit;
+            targetPos = targetObject.Tr.position;
+            rot = Quaternion.LookRotation(targetObject.Tr.position - tr.position);
+
             attackUnit.unitAbilityModule.GetUnitStatusValue(UnitStatusType.ProjectileSpeed, out projectileSpeed);
             attackUnit.unitAbilityModule.GetUnitStatusValue(UnitStatusType.AttackRange, out var value);
             attackRange = lLcroweUtil.RoundToInt(value);
@@ -55,30 +69,28 @@ namespace lLCroweTool.Ability
             //이동회전처리
             if (projectileSpeed > 0.001f)
             {
-                Quaternion rot = Quaternion.LookRotation(targetObject.Tr.position - tr.position);
-                //rot = Quaternion.Lerp(rot, target.Tr.rotation, projectileSpeed * deltaTime * 25);
                 tr.SetPositionAndRotation(projectileSpeed * deltaTime * tr.forward + tr.position, rot);
             }
+            
 
             //거리체크
-            if (!lLcroweUtil.CheckDistance(targetObject.Tr.position, tr.position, hitDistance))
+            if (!lLcroweUtil.CheckDistance(targetPos, tr.position, hitDistance))
             {
                 return;
             }
 
             //공격계산
             //범위처리
-
             var hexTileData = targetObject.curHexTileObject.GetHexTileData;
             BattleManager instance = BattleManager.Instance;
             var tileMap =  instance.hexBasementTileMap.GetTileMap();
 
             //타일맵에서 가져와서 존재하면 대상을 처리
-            Vector3Int[] rangePosArray = lLcroweUtil.GetNearRangePos(hexTileData.GetTilePos(), attackRange,tileMap);
+            var rangePosList = lLcroweUtil.GetNearRangePos(hexTileData.GetTilePos(), attackRange,tileMap);
 
-            for (int i = 0; i < rangePosArray.Length; i++)
+            for (int i = 0; i < rangePosList.Count; i++)
             {
-                var pos = rangePosArray[i];
+                var pos = rangePosList[i];
                 if (!tileMap.TryGetHexTile(pos, out var hexTileObject))
                 {
                     continue;
@@ -100,7 +112,11 @@ namespace lLCroweTool.Ability
             }
             this.SetActive(false);
 
-            //폭발이팩트처리
+            //공격히트 이팩트처리
+            //가운데처리
+            Vector3 trPos = tr.position;
+            var effectObject = ObjectPoolManager.Instance.RequestDynamicComponentObject(effectObjectPrefab);
+            effectObject.Action(trPos, targetAttackUnit.Tr.position);
         }
     }
 }

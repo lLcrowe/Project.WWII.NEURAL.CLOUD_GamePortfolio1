@@ -106,7 +106,9 @@ namespace lLCroweTool.AstarPath
         //
 
 
-
+        //20230924 
+        //오랜만에보니 한번 고쳐야할듯
+        //몇개 안좋은게 눈에 뛴다
 
 
 
@@ -182,9 +184,10 @@ namespace lLCroweTool.AstarPath
         /// <param name="startPos">시작위치</param>
         /// <param name="endPos">끝위치</param>
         /// <param name="pathPosList">돌려줄 경로위치들</param>
+        /// <param name="addOnCheckAction">추가적인 체크함수</param>
         /// <param name="isIncludeStartPos">시작위치 포함여부</param>
         /// <returns>길찾기가 탐색됫는지 여부</returns>
-        public bool Search(Vector3Int startPos, Vector3Int endPos, ref List<Vector3Int> pathPosList, bool isIncludeStartPos = true)
+        public bool Search(Vector3Int startPos, Vector3Int endPos, ref List<Vector3Int> pathPosList, System.Func<Vector3Int, Vector3Int, bool> addOnCheckAction = null, bool isIncludeStartPos = true)
         {
             //가야될위치와 시작위치가 동일하면
             if (startPos == endPos)
@@ -229,15 +232,16 @@ namespace lLCroweTool.AstarPath
 #endif
 
             //Astat 로직작동
-            bool check = Logic2(startNode, endNode, ref pathPosList);
+            bool check = Logic2(startNode, endNode, ref pathPosList, addOnCheckAction);
 
             //시작위치를 포함시키겠는가
-            if (isIncludeStartPos == false && check)
+            if (isIncludeStartPos == false & check)
             {
                 pathPosList.RemoveAt(0);//요소삭제가 더빠름
             }
             return check;
         }
+
         public List<NodeData> GetNodeDataList()
         {
             return new List<NodeData>(costNodeBible.Values);
@@ -496,7 +500,7 @@ namespace lLCroweTool.AstarPath
         //내가 문제된구역이 노빠구라 그런듯
         //F코스트가 같을시  휴리스틱비교도 안되있음
 
-        private bool Logic2(IAstarNode startNode, IAstarNode endNode, ref List<Vector3Int> pathPosList)
+        private bool Logic2(IAstarNode startNode, IAstarNode endNode, ref List<Vector3Int> pathPosList, System.Func<Vector3Int, Vector3Int, bool> addOnCheckAction)
         {
             //이걸로 제작중
             //시작지점 집어넣기
@@ -559,6 +563,18 @@ namespace lLCroweTool.AstarPath
                 {
                     continue;
                 }
+                
+                //추가 액션 체크
+                if (addOnCheckAction != null)
+                {
+                    //추가 액션 작동후
+                    if (addOnCheckAction.Invoke(targetCheckPos, endPos))
+                    {
+                        //해당사향에 맞으면 타겟위치를 현재 타겟팅된 애로 고치고 넘겨버림 체크
+                        return CheckEndNode(ref targetCheckPos, ref targetCheckPos, ref pathPosList, true);
+                    }
+                }
+
 
                 Vector3 targetCheckWorldPos = targetCheckNode.GetNodeWorldPos();
                 Vector3Int[] nearSidePosArray = targetCheckNode.GetNearSidePosArray();
@@ -579,6 +595,7 @@ namespace lLCroweTool.AstarPath
                 AddDebugList(costNodeBible[targetCheckPos].nodeGCost, costNodeBible[targetCheckPos].nodeHCost, targetCheckPos, parentNodeBible[targetCheckPos]);
 #endif
 
+              
 
                 for (int i = 0; i < nearSidePosArray.Length; i++)
                 {
@@ -601,7 +618,6 @@ namespace lLCroweTool.AstarPath
                     //주변 장애물을 체크
                     if (nearNode.CheckObstacleOrExistObject())
                     {
-                        
                         //도착구역 체크
                         if (CheckEndNode(ref nearPos, ref endPos, ref pathPosList, false))
                         {
@@ -642,6 +658,7 @@ namespace lLCroweTool.AstarPath
                     searchNodeQueue.Enqueue(nodeData);
                     parentNodeBible[nearPos] = targetCheckPos;//부모지정
                 }
+
                 //기준이 된 노드는 닫힌 결말로
                 closePathBible.TryAdd(targetCheckPos, false);
 
@@ -653,6 +670,8 @@ namespace lLCroweTool.AstarPath
 
                 cashCount++;
             } while (searchNodeQueue.Count > 0);
+
+            
             return false;
         }
 
@@ -1061,9 +1080,8 @@ namespace lLCroweTool.AstarPath
                 return $"{f}={g}+{h}\n {parentNodePos}";
             }
         }
-    }
-
 #endif
+    }
 
 
 
@@ -1091,7 +1109,7 @@ namespace lLCroweTool.AstarPath
 
     public class JSP_B
     {
-        public
+
 
 
 
@@ -1109,7 +1127,7 @@ namespace lLCroweTool.AstarPath
         //1급=>
         //임의다변수함수는 1변수함수 콤비네이션=>
 
-        const byte ddd = 0x02;
+        public const byte ddd = 0x02;
 
         public enum ItemType
         {
@@ -1258,270 +1276,147 @@ namespace lLCroweTool.AstarPath
         }
     }
 
-
-public class AStar
-{
-    private static readonly int[] dx = { -1, 0, 1, 0 };
-    private static readonly int[] dy = { 0, -1, 0, 1 };
-
-    // A* 알고리즘: 그리드 내에서 startNode에서 endNode로 가는 최단 경로를 찾는 함수
-    public static List<Node> FindPath(Node startNode, Node endNode, Node[,] grid)
+    public class Node
     {
-        int width = grid.GetLength(0);
-        int height = grid.GetLength(1);
+        public int X;
+        public int Y;
+        public int GCost; // g-value (cost from start to this node)
+        public int HCost; // h-value (heuristic cost from this node to the goal)
 
-        // 열린 목록 (open set)은 평가해야 할 노드들을 저장하는 딕셔너리입니다.
-        var openSet = new Dictionary<Node, double>();
+        public bool IsWall;
 
-        // 닫힌 목록 (closed set)은 이미 평가된 노드들을 저장하는 해시셋입니다.
-        var closedSet = new HashSet<Node>();
-
-        // 시작 노드를 열린 목록에 추가합니다.
-        openSet.Add(startNode, 0);
-
-        // A* 검색 루프
-        while (openSet.Count > 0)
+        public int FCost
         {
-            // 열린 목록에서 FCost(그 노드의 GCost와 HCost의 합)가 가장 낮은 노드를 가져옵니다. HCost는 우선순위로 사용됩니다.
-            Node currentNode = GetLowestFCostNode(openSet);
-
-            // 현재 노드가 목적지인 경우, 경로를 재구성하여 반환합니다.
-            if (currentNode == endNode)
-                return ReconstructPath(currentNode);
-
-            // 현재 노드를 열린 목록에서 제거하고 닫힌 목록에 추가합니다.
-            openSet.Remove(currentNode);
-            closedSet.Add(currentNode);
-
-            // 인접한 노드들을 탐색합니다.
-            foreach (var neighbor in GetNeighbors(currentNode, grid, width, height))
+            get
             {
-                // 이미 닫힌 목록에 있는 노드거나 벽인 경우 건너뜁니다.
-                if (closedSet.Contains(neighbor) || neighbor.IsWall)
-                    continue;
+                return GCost + HCost;
+            }
+        } // f-value (G + H)
+        public Node Parent;
 
-                // 현재 노드를 통해 이웃 노드까지의 새로운 GCost를 계산합니다.
-                float newGCost = currentNode.GCost + GetDistance(currentNode, neighbor);
+        public Node(int x, int y)
+        {
+            X = x;
+            Y = y;
+            GCost = 0;
+            HCost = 0;
+            Parent = null;
+        }
+    }
 
-                // 이웃 노드가 열린 목록에 없거나 새로운 GCost가 기존 GCost보다 작을 경우
-                if (!openSet.ContainsKey(neighbor) || newGCost < neighbor.GCost)
+    public class JumpPointSearch
+    {
+        private int[][] grid;
+        private int gridSizeX;
+        private int gridSizeY;
+        private List<Node> openSet;
+        private HashSet<Node> closedSet;
+
+        public JumpPointSearch(int[][] grid)
+        {
+            this.grid = grid;
+            gridSizeX = grid.Length;
+            gridSizeY = grid[0].Length;
+            openSet = new List<Node>();
+            closedSet = new HashSet<Node>();
+        }
+
+        public List<Node> FindPath(Node startNode, Node goalNode)
+        {
+            openSet.Clear();
+            closedSet.Clear();
+            openSet.Add(startNode);
+
+            while (openSet.Count > 0)
+            {
+                Node currentNode = GetLowestFNode();
+                openSet.Remove(currentNode);
+                closedSet.Add(currentNode);
+
+                if (currentNode == goalNode)
                 {
-                    // 이웃 노드의 GCost, HCost, 부모 노드를 업데이트하고 열린 목록에 추가합니다 (이미 존재하는 경우 제외).
-                    neighbor.GCost = (int)newGCost;
-                    neighbor.HCost = Mathf.RoundToInt(GetDistance(neighbor, endNode));
-                    neighbor.Parent = currentNode;
-
-                    if (!openSet.ContainsKey(neighbor))
-                        openSet.Add(neighbor, 0);
+                    return ReconstructPath(currentNode);
                 }
 
-                // 열린 목록의 이웃 노드의 FCost를 업데이트합니다.
-                openSet[neighbor] = neighbor.FCost;
-            }
-        }
+                List<Node> successors = IdentifySuccessors(currentNode, goalNode);
+                foreach (Node successor in successors)
+                {
+                    if (closedSet.Contains(successor))
+                    {
+                        continue;
+                    }
 
-        // 목적지에 도달할 수 없는 경우, null을 반환합니다.
-        return null;
-    }
+                    int tentativeG = currentNode.GCost + GetDistance(currentNode, successor);
+                    bool isBetterPath = false;
 
-    // 끝 노드에서 시작 노드로 경로를 재구성합니다.
-    private static List<Node> ReconstructPath(Node endNode)
-    {
-        var path = new List<Node>();
-        Node currentNode = endNode;
+                    if (!openSet.Contains(successor))
+                    {
+                        openSet.Add(successor);
+                        isBetterPath = true;
+                    }
+                    else if (tentativeG < successor.GCost)
+                    {
+                        isBetterPath = true;
+                    }
 
-        while (currentNode != null)
-        {
-            // 경로를 유지하기 위해 노드를 리스트의 맨 앞에 삽입합니다.
-            path.Insert(0, currentNode);
-            currentNode = currentNode.Parent;
-        }
-
-        return path;
-    }
-
-    // 딕셔너리에서 FCost가 가장 낮은 노드를 가져옵니다. HCost는 우선순위로 사용됩니다.
-    private static Node GetLowestFCostNode(Dictionary<Node, double> nodes)
-    {
-        Node lowestNode = nodes.Keys.GetEnumerator().Current;
-
-        foreach (var node in nodes.Keys)
-        {
-            if (nodes[node] < nodes[lowestNode] || (nodes[node] == nodes[lowestNode] && node.HCost < lowestNode.HCost))
-                lowestNode = node;
-        }
-
-        return lowestNode;
-    }
-
-    // 주어진 노드의 인접한 노드들을 가져옵니다.
-    private static IEnumerable<Node> GetNeighbors(Node node, Node[,] grid, int width, int height)
-    {
-        var neighbors = new List<Node>();
-
-        for (int i = 0; i < 4; i++)
-        {
-            int newX = node.X + dx[i];
-            int newY = node.Y + dy[i];
-
-            // 인접한 노드가 그리드 범위 내에 있는지 확인합니다.
-            if (newX >= 0 && newX < width && newY >= 0 && newY < height)
-                neighbors.Add(grid[newX, newY]);
-        }
-
-        return neighbors;
-    }
-
-    // 두 노드 사이의 유클리드 거리를 계산합니다.
-    private static float GetDistance(Node nodeA, Node nodeB)
-    {
-        int dstX = Mathf.Abs(nodeA.X - nodeB.X);
-        int dstY = Mathf.Abs(nodeA.Y - nodeB.Y);
-        return Mathf.Sqrt(dstX * dstX + dstY * dstY);
-    }
-}
-
-public class Node
-{
-    public int X;
-    public int Y;
-    public int GCost; // g-value (cost from start to this node)
-    public int HCost; // h-value (heuristic cost from this node to the goal)
-
-    public bool IsWall;
-
-    public int FCost
-    {
-        get
-        {
-            return GCost + HCost;
-        }
-    } // f-value (G + H)
-    public Node Parent;
-
-    public Node(int x, int y)
-    {
-        X = x;
-        Y = y;
-        GCost = 0;
-        HCost = 0;
-        Parent = null;
-    }
-}
-
-public class JumpPointSearch
-{
-    private int[][] grid;
-    private int gridSizeX;
-    private int gridSizeY;
-    private List<Node> openSet;
-    private HashSet<Node> closedSet;
-
-    public JumpPointSearch(int[][] grid)
-    {
-        this.grid = grid;
-        gridSizeX = grid.Length;
-        gridSizeY = grid[0].Length;
-        openSet = new List<Node>();
-        closedSet = new HashSet<Node>();
-    }
-
-    public List<Node> FindPath(Node startNode, Node goalNode)
-    {
-        openSet.Clear();
-        closedSet.Clear();
-        openSet.Add(startNode);
-
-        while (openSet.Count > 0)
-        {
-            Node currentNode = GetLowestFNode();
-            openSet.Remove(currentNode);
-            closedSet.Add(currentNode);
-
-            if (currentNode == goalNode)
-            {
-                return ReconstructPath(currentNode);
+                    if (isBetterPath)
+                    {
+                        successor.Parent = currentNode;
+                        successor.GCost = tentativeG;
+                        successor.HCost = GetDistance(successor, goalNode);
+                    }
+                }
             }
 
-            List<Node> successors = IdentifySuccessors(currentNode, goalNode);
-            foreach (Node successor in successors)
+            // Path not found
+            return null;
+        }
+
+        private List<Node> ReconstructPath(Node node)
+        {
+            List<Node> path = new List<Node>();
+            Node current = node;
+
+            while (current != null)
             {
-                if (closedSet.Contains(successor))
-                {
-                    continue;
-                }
+                path.Insert(0, current);
+                current = current.Parent;
+            }
 
-                int tentativeG = currentNode.GCost + GetDistance(currentNode, successor);
-                bool isBetterPath = false;
+            return path;
+        }
 
-                if (!openSet.Contains(successor))
-                {
-                    openSet.Add(successor);
-                    isBetterPath = true;
-                }
-                else if (tentativeG < successor.GCost)
-                {
-                    isBetterPath = true;
-                }
+        private Node GetLowestFNode()
+        {
+            Node lowestFNode = openSet[0];
 
-                if (isBetterPath)
+            foreach (Node node in openSet)
+            {
+                if (node.FCost < lowestFNode.FCost)
                 {
-                    successor.Parent = currentNode;
-                    successor.GCost = tentativeG;
-                    successor.HCost = GetDistance(successor, goalNode);
+                    lowestFNode = node;
                 }
             }
+
+            return lowestFNode;
         }
 
-        // Path not found
-        return null;
-    }
-
-    private List<Node> ReconstructPath(Node node)
-    {
-        List<Node> path = new List<Node>();
-        Node current = node;
-
-        while (current != null)
+        private List<Node> IdentifySuccessors(Node currentNode, Node goalNode)
         {
-            path.Insert(0, current);
-            current = current.Parent;
+            List<Node> successors = new List<Node>();
+
+            // TODO: Implement Jump Point Search identification of successors
+
+            return successors;
         }
 
-        return path;
-    }
-
-    private Node GetLowestFNode()
-    {
-        Node lowestFNode = openSet[0];
-
-        foreach (Node node in openSet)
+        private int GetDistance(Node nodeA, Node nodeB)
         {
-            if (node.FCost < lowestFNode.FCost)
-            {
-                lowestFNode = node;
-            }
+            int distX = Mathf.Abs(nodeA.X - nodeB.X);
+            int distY = Mathf.Abs(nodeA.Y - nodeB.Y);
+
+            // We can use Manhattan distance as the heuristic for grid-based maps
+            return distX + distY;
         }
-
-        return lowestFNode;
     }
-
-    private List<Node> IdentifySuccessors(Node currentNode, Node goalNode)
-    {
-        List<Node> successors = new List<Node>();
-
-        // TODO: Implement Jump Point Search identification of successors
-
-        return successors;
-    }
-
-    private int GetDistance(Node nodeA, Node nodeB)
-    {
-        int distX = Mathf.Abs(nodeA.X - nodeB.X);
-        int distY = Mathf.Abs(nodeA.Y - nodeB.Y);
-
-        // We can use Manhattan distance as the heuristic for grid-based maps
-        return distX + distY;
-    }
-}
 }

@@ -488,7 +488,7 @@ Animator:
   m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -578,12 +578,16 @@ MonoBehaviour:
   pathList: []
   pathCount: 0
   moveEffectGroup:
+    timer:
+      timer: 0
+      indieTimer: 0
     visualEffectArray:
     - {fileID: 7561319674994883562}
     particleSystemArray: []
-    audioClipArray: []
+    soundInfoArray: []
   audioSource: {fileID: 0}
   isGameStart: 0
+  checkDebugTarget: 0
   anim: {fileID: 0}
   recoilAnim: {fileID: 0}
 --- !u!114 &5781745461223142389
@@ -716,7 +720,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 9a1cfe114435d7a448210c950821c20f, type: 3}
+      _Clip: {fileID: 7400000, guid: 55b640b66a1025a41b2fc5a6066f251d, type: 3}
       _Speed: 0
       _NormalizedStartTime: 0
   - unitAnimationStateType: 1
@@ -726,7 +730,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 4e071168e650c5d47a56efe85c09844a, type: 3}
+      _Clip: {fileID: 7400000, guid: bc76d5b43a565f14bb717349cc063e70, type: 3}
       _Speed: 1
       _NormalizedStartTime: NaN
   - unitAnimationStateType: 2
@@ -736,7 +740,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: bb97d748305d1df47b5d9b1d6e98a719, type: 3}
+      _Clip: {fileID: 7400000, guid: 36ec4c31e72728c4385d2e5897e2f53d, type: 3}
       _Speed: 1
       _NormalizedStartTime: NaN
   - unitAnimationStateType: 3
@@ -746,7 +750,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 5ad2a4a414a6e924da8b74ee3841762a, type: 3}
+      _Clip: {fileID: 7400000, guid: 2ff59a88e94e2b0499d9d19d5ee7e0cc, type: 3}
       _Speed: 1
       _NormalizedStartTime: NaN
 --- !u!114 &9009382827622403149

@@ -34,13 +34,13 @@ MonoBehaviour:
     - unitStatusType: 1
       value: 5000
     - unitStatusType: 2
-      value: 0
+      value: 10
     - unitStatusType: 3
       value: 200
     - unitStatusType: 4
       value: 200
     - unitStatusType: 5
-      value: 0.3
+      value: 2
     - unitStatusType: 6
       value: 2
     - unitStatusType: 7
@@ -52,7 +52,7 @@ MonoBehaviour:
     - unitStatusType: 10
       value: 0
     - unitStatusType: 11
-      value: 4
+      value: 30
     - unitStatusType: 12
       value: 2
     - unitStatusType: 13

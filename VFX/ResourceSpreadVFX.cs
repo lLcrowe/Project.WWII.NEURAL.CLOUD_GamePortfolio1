@@ -8,6 +8,9 @@ namespace lLCroweTool.Effect.VFX
 {
     public class ResourceSpreadVFX : MonoBehaviour
     {
+        //UI자원리소스 비쥬얼이팩트용.
+
+
         //이름//
         //아이템먹었을때 보상받았을따 어느지점으로 쇼로로롱 가는거 만들기
         //일반적으로는 파티클로 만들어졋다함

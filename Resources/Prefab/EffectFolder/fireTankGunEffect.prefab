@@ -5290,14 +5290,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainEffectGroup:
+    timer:
+      timer: 0
+      indieTimer: 0
     visualEffectArray:
     - {fileID: 1584254161602542989}
     particleSystemArray: []
-    audioClipArray: []
-  audioSource: {fileID: 0}
-  timer:
-    timer: 0
-    indieTimer: 0
+    soundInfoArray:
+    - {fileID: 11400000, guid: f83b2dce8118d8141a907e27eca37da3, type: 2}
 --- !u!1 &2359860897916457691
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 462100436373804082}
   - component: {fileID: 462100436373804085}
   - component: {fileID: 462100436373804084}
+  - component: {fileID: 4003086302111394025}
   m_Layer: 0
   m_Name: AchievementUI
   m_TagString: Untagged
@@ -35,7 +36,6 @@ RectTransform:
   - {fileID: 462100438189934413}
   - {fileID: 462100436414539248}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -92,10 +92,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442aca517ce0d07498512a0bb6f9341b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
   iconImage: {fileID: 462100436658188711}
   titleText: {fileID: 462100438189934410}
   descriptionText: {fileID: 462100436414539249}
   backGroundImage: {fileID: 462100436373804085}
+--- !u!225 &4003086302111394025
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462100436373804086}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &462100436414539251
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +140,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 462100436373804087}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -262,7 +274,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 462100436373804087}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -338,7 +349,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 462100436373804087}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}

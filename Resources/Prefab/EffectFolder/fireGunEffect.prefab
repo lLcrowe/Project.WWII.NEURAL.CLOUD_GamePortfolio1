@@ -133,11 +133,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainEffectGroup:
+    timer:
+      timer: 0
+      indieTimer: 0
     visualEffectArray:
     - {fileID: 4708683866375350360}
     particleSystemArray: []
-    audioClipArray: []
-  audioSource: {fileID: 0}
-  timer:
-    timer: 0
-    indieTimer: 0
+    soundInfoArray:
+    - {fileID: 11400000, guid: 7f540528f82160f408d7cbea9f01040f, type: 2}

@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 using static lLCroweTool.lLcroweUtil.HexTileMatrix;
 
@@ -65,6 +67,8 @@ namespace lLCroweTool.TileMap.HexTileMap
 
             BatchUnitObject = targetBatchObject;
             //meshCollider.enabled = hexTileData.IsBatchTile;//이거 배치할때 쓸려고 만든거네
+
+            //나중을 위한 대기
         }
 
         /// <summary>
@@ -220,10 +224,12 @@ namespace lLCroweTool.TileMap.HexTileMap
             }
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Vector3Int temp = hexTileData.GetTilePos();
             Handles.Label(transform.position, $"{temp.x},{temp.y}");
         }
+#endif
     }
 }

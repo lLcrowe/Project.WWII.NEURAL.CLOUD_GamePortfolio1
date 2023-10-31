@@ -1,0 +1,10 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "\uD3EC\uD3F41_\uC0C1\uC810CSV"
+  m_Script: "\"storeID\",\"iconSprite\",\"NameOrTitle\",\"description\"\n\"st1\",\"\",\"\uBCF4\uAE0910\uAD6C\uB9E4\",\"\"\n\"st2\",\"\",\"\uBCF4\uAE09100\uAD6C\uB9E4\",\"\"\n\"st3\",\"\",\"\uBCF4\uAE091000\uAD6C\uB9E4\",\"\"\n\"st4\",\"\",\"\uBCF4\uAE0910000\uAD6C\uB9E4\",\"\""

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "\uD3EC\uD3F41_\uC0C1\uC810\uBF51\uAE30CSV"
+  m_Script: '"storePullID","UnitObjectID","PullEnable"
+
+    "sp1","TestSolider1","FALSE"
+
+    "sp2","TestSolider2","FALSE"
+
+    "sp3","PunchBag","FALSE"
+
+    "sp4","TestSherman","FALSE"
+
+    "sp5","EnemyRifleSolider","FALSE"
+
+    "sp6","EnemySubMachineGunSolider","FALSE"
+
+    "sp7","EnemyOfficers","FALSE"
+
+    "sp8","EnemyTigerTank","FALSE"
+
+    "sp9","Enemy4HoTank","FALSE"
+
+    "sp10","EnemyStugTank","FALSE"
+
+    "sp11","AmericaRifleSolider","TRUE"
+
+    "sp12","AmericaSubMachineGunSolider","TRUE"
+
+    "sp13","AmericaLightMachineGunSolider","TRUE"
+
+    "sp14","AmericaShermanTank_Normal","TRUE"
+
+    "sp15","AmericaShermanTank_AntiInfantryman","TRUE"
+
+    "sp16","AmericaShermanTank_AntiTank","TRUE"
+
+    "sp17","AmericaShermanTank_WarshipGun","TRUE"
+
+    "sp18","SandBag","FALSE"
+
+    "sp19","Stone_Statue","FALSE"
+
+    "sp20","Barrel","FALSE"
+
+    "sp21","Destroy_Tank","FALSE"
+
+    "sp22","Sand_Obstacle","FALSE"'

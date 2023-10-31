@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb268fd627ef524aa6bc00a7a5a7bd8, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  labelID: Default
+  panelUIThemaPreset:
+    panelSpritePreset:
+      color: {r: 0.81960785, g: 0.81960785, b: 0.8117647, a: 1}
+      sprite: {fileID: 21300000, guid: 05805fcba8aa2114589ca721f320fe3e, type: 3}
+      uiMaterial: {fileID: 2100000, guid: fad1ad3be3ce4824caed3f7278606d01, type: 2}
+      isUseRaycastTarget: 1
+    innerPanelBorderPreset:
+      borderTopValue: 0
+      borderBottomValue: 0
+      borderLeftValue: 0
+      borderRightValue: 0
+    innerPanelSpritePreset:
+      color: {r: 1, g: 1, b: 1, a: 1}
+      sprite: {fileID: 0}
+      uiMaterial: {fileID: 0}
+      isUseRaycastTarget: 0
+  iconUIThemaPreset:
+    panelSpritePreset:
+      color: {r: 0.58431375, g: 0.5529412, b: 0.41960785, a: 1}
+      sprite: {fileID: 21300000, guid: 05805fcba8aa2114589ca721f320fe3e, type: 3}
+      uiMaterial: {fileID: 0}
+      isUseRaycastTarget: 1
+    innerPanelBorderPreset:
+      borderTopValue: 0
+      borderBottomValue: 0
+      borderLeftValue: 0
+      borderRightValue: 0
+    innerPanelSpritePreset:
+      color: {r: 0.42352942, g: 0.40392157, b: 0.27058825, a: 1}
+      sprite: {fileID: 0}
+      uiMaterial: {fileID: 0}
+      isUseRaycastTarget: 1
+  buttonUIThemaPreset:
+    panelSpritePreset:
+      color: {r: 0.5529412, g: 0.67058825, b: 0.4, a: 1}
+      sprite: {fileID: 21300000, guid: 05805fcba8aa2114589ca721f320fe3e, type: 3}
+      uiMaterial: {fileID: 0}
+      isUseRaycastTarget: 1
+    innerPanelBorderPreset:
+      borderTopValue: 0
+      borderBottomValue: 0
+      borderLeftValue: 0
+      borderRightValue: 0
+    innerPanelSpritePreset:
+      color: {r: 1, g: 1, b: 1, a: 1}
+      sprite: {fileID: 0}
+      uiMaterial: {fileID: 0}
+      isUseRaycastTarget: 0
+  buttonColorPreset:
+    highLightColor: {r: 0.9609375, g: 0.9609375, b: 0.9609375, a: 1}
+    pressedColor: {r: 0.78515625, g: 0.78515625, b: 0.78515625, a: 1}
+    selectedColor: {r: 0.9609375, g: 0.9609375, b: 0.9609375, a: 1}
+    disabledColor: {r: 0.78515625, g: 0.78515625, b: 0.78515625, a: 0.5}
+    colorMultiplier: 1
+    fadeDuration: 0.1
+  buttonSpriteSwapPreset:
+    highLightSprite: {fileID: 21300000, guid: 6458cfd9416c80d40be9b5a92e8e9a6d, type: 3}
+    pressedSprite: {fileID: 21300000, guid: 6458cfd9416c80d40be9b5a92e8e9a6d, type: 3}
+    selectedSprite: {fileID: 21300000, guid: 6458cfd9416c80d40be9b5a92e8e9a6d, type: 3}
+    disabledSprite: {fileID: 21300000, guid: 6458cfd9416c80d40be9b5a92e8e9a6d, type: 3}
+  textUIThemaPreset:
+    panelSpritePreset:
+      color: {r: 0.6784314, g: 0.6784314, b: 0.67058825, a: 1}
+      sprite: {fileID: 21300000, guid: 6458cfd9416c80d40be9b5a92e8e9a6d, type: 3}
+      uiMaterial: {fileID: 0}
+      isUseRaycastTarget: 1
+    innerPanelBorderPreset:
+      borderTopValue: 0
+      borderBottomValue: 0
+      borderLeftValue: 0
+      borderRightValue: 0
+    innerPanelSpritePreset:
+      color: {r: 1, g: 1, b: 1, a: 1}
+      sprite: {fileID: 0}
+      uiMaterial: {fileID: 0}
+      isUseRaycastTarget: 1
+  textFontPreset:
+    fontAsset: {fileID: 0}
+    fontColor: {r: 0, g: 0, b: 0, a: 1}

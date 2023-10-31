@@ -98,8 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d0f51a9fcdb864a9e49841f327125b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitDistance: 0.2
+  hitDistance: 1
   projectileSpeed: 0
   attackRange: 0
+  targetPos: {x: 0, y: 0, z: 0}
+  rot: {x: 0, y: 0, z: 0, w: 0}
   targetAttackUnit: {fileID: 0}
   targetObject: {fileID: 0}
+  effectObjectPrefab: {fileID: 7693109950716459087, guid: 4ef8bb919ba3c0f4eb55ec88761a3ebe,
+    type: 3}

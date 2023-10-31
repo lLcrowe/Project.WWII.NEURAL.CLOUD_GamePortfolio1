@@ -38,7 +38,7 @@ namespace lLCroweTool.QC.EditorOnly
 
         Texture[] previewTexture = new Texture[0];
 
-        private  void OnEnable()
+        private void OnEnable()
         {
             //특정경로에 있는 배치오브젝트들의 정보들을 가져와서 캐싱하기
             //유닛경로에서 찾아와서 배치할수 있게 제작
@@ -203,13 +203,13 @@ namespace lLCroweTool.QC.EditorOnly
             //어덯게 만들까 여기서는 회전만하고 (인게임에서 R누르면 회전하듯이)
             //배치는 다른곳에서
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("회전R"))
+            if (GUILayout.Button("회전R(R)"))
             {
-                batchAngle += 90;
+                RotateAngle(true);
             }
-            if (GUILayout.Button("회전T"))
+            if (GUILayout.Button("회전L(T)"))
             {
-                batchAngle -= 90;
+                RotateAngle(false);
             }
             EditorGUILayout.EndHorizontal();
 
@@ -251,7 +251,7 @@ namespace lLCroweTool.QC.EditorOnly
                         //카드배치체크하기
                         ResetTargetBatchObject();
                         tileMapBatchMode = TileMapBatchMode.Create;
-                        targetTileMapBatchObect = Instantiate(batchObjectInfo.unitPrefab);
+                        targetTileMapBatchObect = (UnitObject_Base)PrefabUtility.InstantiatePrefab(batchObjectInfo.unitPrefab);
                         targetTileMapBatchObect.unitObjectInfo = batchObjectInfo;
                         Vector3 eular = targetTileMapBatchObect.transform.rotation.eulerAngles;
                         batchAngle = targetCustom3DHexTileMap.createTileAxisType == lLcroweUtil.HexTileMatrix.CreateTileAxisType.XY ? eular.z : eular.y;
@@ -328,17 +328,18 @@ namespace lLCroweTool.QC.EditorOnly
             if (IsEscapeKeyDown)
             {
                 Debug.Log("Escape");
+                ResetTargetBatchObject();
                 //Close();
             }
 
             if (IsRKeyDown)
             {
-                batchAngle += 90;
+                RotateAngle(true);
             }
 
             if (IsTKeyDown)
             {
-                batchAngle -= 90;
+                RotateAngle(false);
             }
 
             Vector3 mousePos = Event.current.mousePosition;
@@ -375,12 +376,13 @@ namespace lLCroweTool.QC.EditorOnly
                     continue;
                 }
 
-
-                //7개여야지 맞는데
-                DrawHexTile(newHexTileObject, Color.green);
-
                 //존재하면 배치할지 체크
                 movePos = newHexTileObject.transform.position;
+
+                //7개여야지 맞는데//그리기
+                DrawHexTile(newHexTileObject, Color.green);
+                DrawBatchDirection(movePos, GetBatchAngleRotation());
+
                 switch (tileMapBatchMode)
                 {
                     case TileMapBatchMode.Modify:
@@ -413,9 +415,11 @@ namespace lLCroweTool.QC.EditorOnly
 
                                 //선택하기
                                 targetTileMapBatchObect = newHexTileObject.BatchUnitObject;
-                                Vector3 eular = targetTileMapBatchObect.transform.rotation.eulerAngles;
-                                batchAngle = targetCustom3DHexTileMap.createTileAxisType == lLcroweUtil.HexTileMatrix.CreateTileAxisType.XY ? eular.z : eular.y;
                                 selectHexTileObject = newHexTileObject;
+
+                                //배치되있는 유닛의 회전값을 가져와서 세팅하기
+                                var targetRot = targetTileMapBatchObect.transform.localRotation.eulerAngles;//배치된 오브젝트의 각도
+                                batchAngle = targetCustom3DHexTileMap.createTileAxisType == lLcroweUtil.HexTileMatrix.CreateTileAxisType.XY ? targetRot.z : targetRot.y;
                             }
                             else
                             {
@@ -434,7 +438,7 @@ namespace lLCroweTool.QC.EditorOnly
                                     Transform tempTr = newHexTileObject.BatchUnitObject.transform;
                                     tempTr.InitTrObjPrefab(newHexTileObject.transform.position, newHexTileObject.transform);
                                     newHexTileObject.BatchUnitObject.curHexTileObject = newHexTileObject;
-                                    newHexTileObject.BatchUnitObject.unitUI.uIBarFollowObject.OnValidate();
+                                    newHexTileObject.BatchUnitObject.unitUI?.uIBarFollowObject.OnValidate();
                                 }
 
                                 if (selectHexTileObject.BatchUnitObject != null)
@@ -442,7 +446,7 @@ namespace lLCroweTool.QC.EditorOnly
                                     Transform tempTr = selectHexTileObject.BatchUnitObject.transform;
                                     tempTr.InitTrObjPrefab(selectHexTileObject.transform.position, selectHexTileObject.transform);
                                     selectHexTileObject.BatchUnitObject.curHexTileObject = selectHexTileObject;
-                                    selectHexTileObject.BatchUnitObject.unitUI.uIBarFollowObject.OnValidate();
+                                    selectHexTileObject.BatchUnitObject.unitUI?.uIBarFollowObject.OnValidate();
 
                                     //이거 언도부분 잘안되네 수정모드 언도는 나중에하기
                                     //Undo.RecordObject(tempTr, "트랜스폼");
@@ -469,7 +473,6 @@ namespace lLCroweTool.QC.EditorOnly
                                 selectHexTileObject = null;
                             }
                         }
-
                         break;
                     case TileMapBatchMode.Create:
                         //생성모드
@@ -479,11 +482,13 @@ namespace lLCroweTool.QC.EditorOnly
                             //Debug.Log("MouseLe");
                             if (newHexTileObject.BatchUnitObject == null)
                             {
-                                var targetBatch = Instantiate(targetTileMapBatchObect, newHexTileObject.transform);
+                                //AssetDatabase에 있는걸로 호출해야지 널로 반화안함
+                                //var targetBatch = (UnitObject_Base)PrefabUtility.InstantiatePrefab(targetTileMapBatchObect, newHexTileObject.transform);
+                                var targetBatch = (UnitObject_Base)PrefabUtility.InstantiatePrefab(targetTileMapBatchObect.unitObjectInfo.unitPrefab, newHexTileObject.transform);
                                 targetBatch.transform.parent = newHexTileObject.transform;
                                 targetBatch.transform.position = newHexTileObject.transform.position;
-                                Vector3 angleAxis = targetCustom3DHexTileMap.createTileAxisType == lLcroweUtil.HexTileMatrix.CreateTileAxisType.XY ? Vector3.forward : Vector3.up;
-                                Quaternion rotation = Quaternion.AngleAxis(batchAngle, angleAxis);
+
+                                Quaternion rotation = GetBatchAngleRotation();
                                 targetBatch.transform.rotation = rotation;
 
                                 targetBatch.unitUI?.uIBarFollowObject.OnValidate();//미리 다지정
@@ -513,22 +518,39 @@ namespace lLCroweTool.QC.EditorOnly
                         }
                         break;
                 }
-
                 break;
-                //Debug.Log($"hit있어 {hitInfo.collider.name} {hitInfo.transform.gameObject.layer}");
             }
-
             SceneView.RepaintAll();
+        }
+
+        float addRotate = 45f;
+
+        private void RotateAngle(bool isRight)
+        {
+            batchAngle += isRight ? addRotate : -addRotate;
+        }
+
+        private Quaternion GetBatchAngleRotation()
+        {
+            Vector3 angleAxis = targetCustom3DHexTileMap.createTileAxisType == lLcroweUtil.HexTileMatrix.CreateTileAxisType.XY ? Vector3.forward : Vector3.up;
+            return Quaternion.AngleAxis(batchAngle, angleAxis) * GetCustomHexTileMapRotation();
+        }
+
+        private Quaternion GetCustomHexTileMapRotation()
+        {
+            return targetCustom3DHexTileMap.transform.rotation;//이거 되로하는게 맞음
         }
 
         private void DrawHexTile(HexTileObject newHexTileObject, Color targetColor)
         {
             Vector3 originPos = newHexTileObject.transform.position;
             Vector3[] points = new Vector3[newHexTileObject.mesh.vertices.Length + 1];
+
             //타일맵 회전대응
-            Quaternion rot = newHexTileObject.transform.rotation;
-            Vector3 dir = targetCustom3DHexTileMap.createTileAxisType == lLcroweUtil.HexTileMatrix.CreateTileAxisType.XY ? rot * Vector3.forward : rot * Vector3.up;
-            
+            //회전처리//원점 처리
+            Quaternion rot = GetCustomHexTileMapRotation();
+            //이미 버텍스설정할떄 방향이 설정됫는데 필요한가?
+            //Vector3 dir = targetCustom3DHexTileMap.createTileAxisType == lLcroweUtil.HexTileMatrix.CreateTileAxisType.XY ? Vector3.forward : Vector3.up;
 
             for (int j = 0; j < points.Length; j++)
             {
@@ -538,7 +560,8 @@ namespace lLCroweTool.QC.EditorOnly
                 }
                 else
                 {
-                    points[j] = (newHexTileObject.mesh.vertices[j] + dir + originPos);
+                    //이미 지정된
+                    points[j] = (rot * newHexTileObject.mesh.vertices[j]) + originPos;
                 }
             }
             Handles.color = targetColor;
@@ -546,8 +569,15 @@ namespace lLCroweTool.QC.EditorOnly
             Handles.color = Color.white;
         }
 
+        private void DrawBatchDirection(Vector3 pos, Quaternion angle)
+        {
+            lLcroweUtilEditor.DrawConn(pos, angle);
+            lLcroweUtilEditor.DrawLine(pos, angle, 3f, Vector3.forward);
+        }
+
         private void Update()
         {
+            //현재 배치할 타겟팅된 배치유닛
             if (targetTileMapBatchObect != null)
             {
                 //이동
@@ -555,8 +585,7 @@ namespace lLCroweTool.QC.EditorOnly
                 targetTileMapBatchObect.transform.position = Vector3.Lerp(targetTileMapBatchObect.transform.position, movePos, time);
 
                 //회전
-                Vector3 angleAxis = targetCustom3DHexTileMap.createTileAxisType == lLcroweUtil.HexTileMatrix.CreateTileAxisType.XY ? Vector3.forward : Vector3.up;
-                Quaternion rotation = Quaternion.AngleAxis(batchAngle, angleAxis);
+                Quaternion rotation = GetBatchAngleRotation();
                 targetTileMapBatchObect.transform.rotation = Quaternion.Lerp(targetTileMapBatchObect.transform.rotation, rotation, time);
             }
         }
