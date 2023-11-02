@@ -1,16 +1,19 @@
 # Project.WWII.NEURAL.CLOUD (GamePortfolio1)
 뉴럴클라우드 시스템을 가지고 와서 2차 세계대전(에셋은 좀 다르게 처리) 전투게임을 만들어보았습니다. 
 
--=개발기간 8개월    
+### 개발기간 8개월    
 https://youtu.be/dLH27GE5_Tc  
 
--개발기간 6개월  
+### 개발기간 6개월  
 https://youtu.be/zgutF4z9UNU  
 
 
--=제작한 툴들  
+### 제작한 툴들  
 https://youtu.be/ygB2JprJd7k  
 https://youtu.be/LsV71J1FiqU  
+
+### 구글스프레드
+https://docs.google.com/spreadsheets/d/18EEOPPozjKlINIej0-e6c1XsVreTPMYGnIpx1zuKNMg/edit?usp=sharing
 
 -=C# 코드줄 갯수  
 ![image](https://github.com/lLcrowe/GamePortfolio1/assets/44671731/fc07d3be-0e39-4ccc-9644-f73f49e9292c)  
