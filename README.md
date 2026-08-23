@@ -16,7 +16,7 @@ https://youtu.be/LsV71J1FiqU
 https://docs.google.com/spreadsheets/d/18EEOPPozjKlINIej0-e6c1XsVreTPMYGnIpx1zuKNMg/edit?usp=sharing
 
 -=C# 코드줄 갯수  
-![image](https://github.com/lLcrowe/GamePortfolio1/assets/44671731/fc07d3be-0e39-4ccc-9644-f73f49e9292c)  
+![image](https://github.com/ILcrowe/GamePortfolio1/assets/44671731/fc07d3be-0e39-4ccc-9644-f73f49e9292c)
 
 ## 끝나고 작업할것  
 개인 라이브러리에 수정한거와 추가할것들 집어넣기  
